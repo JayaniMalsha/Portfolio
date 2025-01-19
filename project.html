@@ -5,285 +5,440 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects - Jayani Malsha</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
         .project-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.95);
         }
+        
         .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+            border-color: #3b82f6;
         }
+        
         .tag {
-            background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            transition: all 0.3s ease;
         }
+        
+        .tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+        }
+        
         .github-btn {
-            background: linear-gradient(45deg, #333, #666);
-            transition: transform 0.2s ease;
+            background: linear-gradient(135deg, #24292e 0%, #404448 100%);
+            transition: all 0.3s ease;
         }
+        
         .github-btn:hover {
             transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
+        
         .hero-pattern {
-            background-color: #f8fafc;
-            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
-            background-size: 20px 20px;
+            background-image: 
+                radial-gradient(circle at 100% 100%, #3b82f6 0%, transparent 25%),
+                radial-gradient(circle at 0% 0%, #8b5cf6 0%, transparent 25%),
+                linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95));
+            background-size: 100% 100%;
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .project-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
         }
     </style>
 </head>
 <body class="bg-gray-50">
     <!-- Navigation -->
-    <nav class="bg-white shadow-sm sticky top-0 z-50">
+    <nav class="bg-white shadow-lg sticky top-0 z-50 backdrop-filter backdrop-blur-lg bg-opacity-90">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
-                <a href="index.html" class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
+                <a href="index.html" class="text-2xl font-bold gradient-text">
                     Jayani Malsha
                 </a>
                 <div class="hidden md:flex space-x-8">
-                    <a href="home.html" class="text-gray-600 hover:text-blue-600">Home</a>
-                    <a href="about.html" class="text-gray-600 hover:text-blue-600">About</a>
-                    <a href="project.html" class="text-blue-600">Projects</a>
-                    <a href="contact.html" class="text-gray-600 hover:text-blue-600">Contact</a>
+                    <a href="home.html" class="nav-link text-gray-600 hover:text-blue-600">Home</a>
+                    <a href="about.html" class="nav-link text-gray-600 hover:text-blue-600">About</a>
+                    <a href="project.html" class="nav-link text-blue-600">Projects</a>
+                    <a href="contact.html" class="nav-link text-gray-600 hover:text-blue-600">Contact</a>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="hero-pattern py-4">
-        <div class="container mx-auto px-6">
-            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">My Projects</h1>
-            <p class="text-xl text-gray-600 max-w-2xl">
-                Explore my portfolio of projects spanning machine learning, web development, and software engineering.
+    <header class="hero-pattern py-20">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-6">
+                My <span class="gradient-text">Projects</span>
+            </h1>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                Explore my journey through technology, featuring projects in machine learning, 
+                web development, and innovative software solutions.
             </p>
+            <div class="flex flex-wrap justify-center gap-4 mt-8">
+                <button class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition filter-btn" data-filter="all">
+    <i class="fas fa-filter mr-2"></i>All Projects
+			</button>
+			<button class="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition filter-btn" data-filter="web">
+				<i class="fas fa-laptop-code mr-2"></i>Web Dev
+			</button>
+			<button class="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition filter-btn" data-filter="ml">
+				<i class="fas fa-brain mr-2"></i>ML/AI
+			</button>
+
+            </div>
         </div>
     </header>
 
-    <!-- Projects Grid -->
-    <section class="py-16">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Heart Disease Prediction -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-md project-card">
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-xl font-bold text-gray-800">Heart Disease Prediction</h3>
-                        </div>
-                        <p class="text-gray-600 mb-4">
-                            Built a model to predict whether a person has heart disease based on medical features such as age, sex, cholesterol levels, and blood pressure.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="tag text-white px-3 py-1 rounded-full text-sm">Python</span>
-                            <span class="tag text-white px-3 py-1 rounded-full text-sm">TensorFlow</span>
-                            <span class="tag text-white px-3 py-1 rounded-full text-sm">Scikit-learn</span>
-                        </div>
-                        <a href="https://github.com/JayaniMalsha/Heart-Disease-Prediction" target="_blank" 
-                           class="github-btn text-white px-6 py-2 rounded-lg inline-block">
-                            View on GitHub
-                        </a>
-                    </div>
-                </div>
+	<section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-                <!-- Ransomware Detector -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-md project-card">
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-xl font-bold text-gray-800">Ransomware Detector</h3>
-                        </div>
-                        <p class="text-gray-600 mb-4">
-                            Developed an innovative Ransomware detector app using machine learning and analysis of file behaviors.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="tag text-white px-3 py-1 rounded-full text-sm">Python</span>
-                            <span class="tag text-white px-3 py-1 rounded-full text-sm">Machine Learning</span>
-                            <span class="tag text-white px-3 py-1 rounded-full text-sm">Data Science</span>
-                        </div>
-                        <a href="https://github.com/JayaniMalsha/Ransomware-Detector-App" target="_blank" 
-                           class="github-btn text-white px-6 py-2 rounded-lg inline-block">
-                            View on GitHub
-                        </a>
-                    </div>
-                </div>
+            <!-- Heart Disease Prediction -->
+            <div class="project-card rounded-xl overflow-hidden project-item ml" data-category="ml">
+                <div class="project-image" style="background-image: url('/api/placeholder/400/200')"></div>
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-gray-800">Heart Disease Prediction</h3>
 
-                <!-- AR Fashion Application -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-md project-card">
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-xl font-bold text-gray-800">AR Fashion Application</h3>
-                        </div>
-                        <p class="text-gray-600 mb-4">
-                            An AR application integrating with WooCommerce for virtual try-ons, using advanced computer vision technologies.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="tag text-white px-3 py-1 rounded-full text-sm">TensorFlow</span>
-                            <span class="tag text-white px-3 py-1 rounded-full text-sm">Flask</span>
-                            <span class="tag text-white px-3 py-1 rounded-full text-sm">OpenCV</span>
-                            <span class="tag text-white px-3 py-1 rounded-full text-sm">MediaPipe</span>
-                        </div>
-                        <a href="https://github.com/AmayaDes/MirrorMe-SDGP" target="_blank" 
-                           class="github-btn text-white px-6 py-2 rounded-lg inline-block">
-                            View on GitHub
-                        </a>
                     </div>
-                </div>
-
-                <!-- Health Care Management System -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-md project-card">
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-xl font-bold text-gray-800">Health Care Management System</h3>
-                        </div>
-                        <p class="text-gray-600 mb-4">
-                            Built a health care management system with a REST API to manage patients, doctors, and appointments.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="tag text-white px-3 py-1 rounded-full text-sm">Java</span>
-                            <span class="tag text-white px-3 py-1 rounded-full text-sm">REST API</span>
-                        </div>
-                        <a href="https://github.com/JayaniMalsha/Health-Care-Management-System" target="_blank" 
-                           class="github-btn text-white px-6 py-2 rounded-lg inline-block">
-                            View on GitHub
-                        </a>
+                    <p class="text-gray-600 mb-4">
+                        Built a model to predict whether a person has heart disease based on medical features such as age, sex, cholesterol levels, and blood pressure.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="tag text-white px-4 py-1 rounded-full text-sm">Python</span>
+                        <span class="tag text-white px-4 py-1 rounded-full text-sm">TensorFlow</span>
+                        <span class="tag text-white px-4 py-1 rounded-full text-sm">Scikit-learn</span>
                     </div>
-                </div>
-
-                <!-- Beach Hotel Website -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-md project-card">
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-xl font-bold text-gray-800">Beach Hotel Website</h3>
-                        </div>
-                        <p class="text-gray-600 mb-4">
-                            A responsive website for a beach hotel showcasing services, availability, and booking.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="tag text-white px-3 py-1 rounded-full text-sm">HTML</span>
-                            <span class="tag text-white px-3 py-1 rounded-full text-sm">CSS</span>
-                            <span class="tag text-white px-3 py-1 rounded-full text-sm">JavaScript</span>
-                        </div>
-                        <a href="https://github.com/JayaniMalsha/Beach_Hotel_Website_" target="_blank" 
-                           class="github-btn text-white px-6 py-2 rounded-lg inline-block">
-                            View on GitHub
-                        </a>
-                    </div>
-                </div>
-				
-				<!-- Sports Website -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-md project-card">
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-xl font-bold text-gray-800">Sports Website</h3>
-                        </div>
-                        <p class="text-gray-600 mb-4">
-                            Created a sports website to showcase live updates, schedules, and news.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="tag text-white px-3 py-1 rounded-full text-sm">HTML</span>
-                            <span class="tag text-white px-3 py-1 rounded-full text-sm">CSS</span>
-							<span class="tag text-white px-3 py-1 rounded-full text-sm">JavaScript</span>
-                        </div>
-                        <a href="https://github.com/JayaniMalsha/Sports-Website" target="_blank" 
-                           class="github-btn text-white px-6 py-2 rounded-lg inline-block">
-                            View on GitHub
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Sliding Puzzle Solver -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-md project-card">
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-xl font-bold text-gray-800">Sliding Puzzle Solver</h3>
-                        </div>
-                        <p class="text-gray-600 mb-4">
-                            Created a solution for sliding puzzles using a breadth-first search algorithm.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="tag text-white px-3 py-1 rounded-full text-sm">Jave</span>
-                            <span class="tag text-white px-3 py-1 rounded-full text-sm">Breadth-First Search Algorithm</span>
-                            
-                        </div>
-                        <a href="https://github.com/JayaniMalsha/Solving-sliding-puzzles-using-path-finding-" target="_blank" 
-                           class="github-btn text-white px-6 py-2 rounded-lg inline-block">
-                            View on GitHub
-                        </a>
-                    </div>
-                </div>
-				
-				<!-- Foodie's Fave Queue Management System -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-md project-card">
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-xl font-bold text-gray-800">Foodie's Fave Queue Management System</h3>
-                        </div>
-                        <p class="text-gray-600 mb-4">
-                            Developed a queue management system for a restaurant to manage customer orders and availability using JavaFX.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="tag text-white px-3 py-1 rounded-full text-sm">Java</span>
-                            <span class="tag text-white px-3 py-1 rounded-full text-sm">JavaFX</span>
-                        </div>
-                        <a href="https://github.com/JayaniMalsha/Foodies-Fave-Queue-Management-System" target="_blank" 
-                           class="github-btn text-white px-6 py-2 rounded-lg inline-block">
-                            View on GitHub
-                        </a>
-                    </div>
-                </div>
-				
-				<!-- Student Progression Predictor -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-md project-card">
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-xl font-bold text-gray-800">Student Progression Predictor</h3>
-                        </div>
-                        <p class="text-gray-600 mb-4">
-                            Developed a student progression predictor using Python to predict the likelihood of a student passing based on their performance.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="tag text-white px-3 py-1 rounded-full text-sm">Python</span>
-                 
-                        </div>
-                        <a href="https://github.com/JayaniMalsha/Student-Progression-Predictor" target="_blank" 
-                           class="github-btn text-white px-6 py-2 rounded-lg inline-block">
-                            View on GitHub
-                        </a>
-                    </div>
-                </div>
-				
-                <!-- GUI Shopping Management System -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-md project-card">
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-xl font-bold text-gray-800">GUI Shopping Management System</h3>
-                        </div>
-                        <p class="text-gray-600 mb-4">
-                            Developed a graphical user interface (GUI) shopping management system using Java Swing and object-oriented programming principles.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="tag text-white px-3 py-1 rounded-full text-sm">Java</span>
-                            <span class="tag text-white px-3 py-1 rounded-full text-sm">Java Swing</span>
-                            <span class="tag text-white px-3 py-1 rounded-full text-sm">OOP</span>
-                        </div>
-                        <a href="https://github.com/JayaniMalsha/GUI-from-the-menu-console-for-Shopping-Management-System" target="_blank" 
-                           class="github-btn text-white px-6 py-2 rounded-lg inline-block">
-                            View on GitHub
+                    <div class="flex justify-between items-center">
+                        <a href="https://github.com/JayaniMalsha/Heart-Disease-Prediction" 
+                           class="github-btn text-white px-6 py-2 rounded-lg inline-flex items-center">
+                            <i class="fab fa-github mr-2"></i>
+                            View Project
                         </a>
                     </div>
                 </div>
             </div>
+
+            <!-- Ransomware Detector -->
+            <div class="project-card rounded-xl overflow-hidden">
+                <div class="project-image" style="background-image: url('/api/placeholder/400/200')"></div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-800">Ransomware Detector</h3>
+                    <p class="text-gray-600 mb-4">
+                        Developed an innovative Ransomware detector app using machine learning and analysis of file behaviors.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="tag text-white px-4 py-1 rounded-full text-sm">Python</span>
+                        <span class="tag text-white px-4 py-1 rounded-full text-sm">Machine Learning</span>
+                        <span class="tag text-white px-4 py-1 rounded-full text-sm">Data Science</span>
+                    </div>
+                    <a href="https://github.com/JayaniMalsha/Ransomware-Detector-App" 
+                       class="github-btn text-white px-6 py-2 rounded-lg inline-flex items-center">
+                        <i class="fab fa-github mr-2"></i>
+                        View Project
+                    </a>
+                </div>
+            </div>
+
+            <!-- AR Fashion Application -->
+            <div class="project-card rounded-xl overflow-hidden">
+                <div class="project-image" style="background-image: url('/api/placeholder/400/200')"></div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-800">AR Fashion Application</h3>
+                    <p class="text-gray-600 mb-4">
+                        An AR application integrating with WooCommerce for virtual try-ons, using advanced computer vision technologies.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="tag text-white px-4 py-1 rounded-full text-sm">TensorFlow</span>
+                        <span class="tag text-white px-4 py-1 rounded-full text-sm">Flask</span>
+                        <span class="tag text-white px-4 py-1 rounded-full text-sm">OpenCV</span>
+                        <span class="tag text-white px-4 py-1 rounded-full text-sm">MediaPipe</span>
+                    </div>
+                    <a href="https://github.com/AmayaDes/MirrorMe-SDGP" 
+                       class="github-btn text-white px-6 py-2 rounded-lg inline-flex items-center">
+                        <i class="fab fa-github mr-2"></i>
+                        View Project
+                    </a>
+                </div>
+            </div>
+
+            <!-- Health Care Management System -->
+            <div class="project-card rounded-xl overflow-hidden">
+                <div class="project-image" style="background-image: url('/api/placeholder/400/200')"></div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-800">Health Care Management System</h3>
+                    <p class="text-gray-600 mb-4">
+                        Built a health care management system with a REST API to manage patients, doctors, and appointments.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="tag text-white px-4 py-1 rounded-full text-sm">Java</span>
+                        <span class="tag text-white px-4 py-1 rounded-full text-sm">REST API</span>
+                    </div>
+                    <a href="https://github.com/JayaniMalsha/Health-Care-Management-System" 
+                       class="github-btn text-white px-6 py-2 rounded-lg inline-flex items-center">
+                        <i class="fab fa-github mr-2"></i>
+                        View Project
+                    </a>
+                </div>
+            </div>
+
+            <!-- Beach Hotel Website -->
+            <div class="project-card rounded-xl overflow-hidden" data-category="web">
+                <div class="project-image" style="background-image: url('/api/placeholder/400/200')"></div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-800">Beach Hotel Website</h3>
+                    <p class="text-gray-600 mb-4">
+                        A responsive website for a beach hotel showcasing services, availability, and booking.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="tag text-white px-4 py-1 rounded-full text-sm">HTML</span>
+                        <span class="tag text-white px-4 py-1 rounded-full text-sm">CSS</span>
+                        <span class="tag text-white px-4 py-1 rounded-full text-sm">JavaScript</span>
+                    </div>
+                    <a href="https://github.com/JayaniMalsha/Beach_Hotel_Website_" 
+                       class="github-btn text-white px-6 py-2 rounded-lg inline-flex items-center">
+                        <i class="fab fa-github mr-2"></i>
+                        View Project
+                    </a>
+                </div>
+            </div>
+
+            
+            <!-- Sports Website -->
+            <div class="project-card rounded-xl overflow-hidden">
+                <div class="project-image" style="background-image: url('/api/placeholder/400/200')"></div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-800">Sports Website</h3>
+                    <p class="text-gray-600 mb-4">
+                        Created a sports website to showcase live updates, schedules, and news.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="tag text-white px-4 py-1 rounded-full text-sm">HTML</span>
+                        <span class="tag text-white px-4 py-1 rounded-full text-sm">CSS</span>
+                        <span class="tag text-white px-4 py-1 rounded-full text-sm">JavaScript</span>
+                    </div>
+                    <a href="https://github.com/JayaniMalsha/Sports-Website" 
+                       class="github-btn text-white px-6 py-2 rounded-lg inline-flex items-center">
+                        <i class="fab fa-github mr-2"></i>
+                        View Project
+                    </a>
+                </div>
+            </div>
+
+            <!-- Sliding Puzzle Solver -->
+            <div class="project-card rounded-xl overflow-hidden">
+                <div class="project-image" style="background-image: url('/api/placeholder/400/200')"></div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-800">Sliding Puzzle Solver</h3>
+                    <p class="text-gray-600 mb-4">
+                        Created a solution for sliding puzzles using a breadth-first search algorithm.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="tag text-white px-4 py-1 rounded-full text-sm">Java</span>
+                        <span class="tag text-white px-4 py-1 rounded-full text-sm">Breadth-First Search Algorithm</span>
+                    </div>
+                    <a href="https://github.com/JayaniMalsha/Solving-sliding-puzzles-using-path-finding-" 
+                       class="github-btn text-white px-6 py-2 rounded-lg inline-flex items-center">
+                        <i class="fab fa-github mr-2"></i>
+                        View Project
+                    </a>
+                </div>
+            </div>
+
+            <!-- Foodie's Fave Queue Management System -->
+            <div class="project-card rounded-xl overflow-hidden">
+                <div class="project-image" style="background-image: url('/api/placeholder/400/200')"></div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-800">Foodie's Fave Queue Management System</h3>
+                    <p class="text-gray-600 mb-4">
+                        Developed a queue management system for a restaurant to manage customer orders and availability using JavaFX.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="tag text-white px-4 py-1 rounded-full text-sm">Java</span>
+                        <span class="tag text-white px-4 py-1 rounded-full text-sm">JavaFX</span>
+                    </div>
+                    <a href="https://github.com/JayaniMalsha/Foodies-Fave-Queue-Management-System" 
+                       class="github-btn text-white px-6 py-2 rounded-lg inline-flex items-center">
+                        <i class="fab fa-github mr-2"></i>
+                        View Project
+                    </a>
+                </div>
+            </div>
+
+            <!-- Student Progression Predictor -->
+            <div class="project-card rounded-xl overflow-hidden">
+                <div class="project-image" style="background-image: url('/api/placeholder/400/200')"></div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-800">Student Progression Predictor</h3>
+                    <p class="text-gray-600 mb-4">
+                        Developed a student progression predictor using Python to predict the likelihood of a student passing based on their performance.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="tag text-white px-4 py-1 rounded-full text-sm">Python</span>
+                    </div>
+                    <a href="https://github.com/JayaniMalsha/Student-Progression-Predictor" 
+                       class="github-btn text-white px-6 py-2 rounded-lg inline-flex items-center">
+                        <i class="fab fa-github mr-2"></i>
+                        View Project
+                    </a>
+                </div>
+            </div>
+
+            <!-- GUI Shopping Management System -->
+            <div class="project-card rounded-xl overflow-hidden">
+                <div class="project-image" style="background-image: url('/api/placeholder/400/200')"></div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-800">GUI Shopping Management System</h3>
+                    <p class="text-gray-600 mb-4">
+                        Developed a graphical user interface (GUI) shopping management system using Java Swing and object-oriented programming principles.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="tag text-white px-4 py-1 rounded-full text-sm">Java</span>
+                        <span class="tag text-white px-4 py-1 rounded-full text-sm">Java Swing</span>
+                        <span class="tag text-white px-4 py-1 rounded-full text-sm">OOP</span>
+                    </div>
+                    <a href="https://github.com/JayaniMalsha/GUI-from-the-menu-console-for-Shopping-Management-System" 
+                       class="github-btn text-white px-6 py-2 rounded-lg inline-flex items-center">
+                        <i class="fab fa-github mr-2"></i>
+                        View Project
+                    </a>
+                </div>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
+
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-6 text-center">
-            <p>© 2025 Jayani Malsha. All rights reserved.</p>
-			<div class="flex space-x-6 mt-4 md:mt-0">
-                    <a href="https://www.linkedin.com/in/jayani-malsha-6a6822266" class="hover:text-blue-400 transition">LinkedIn</a>
-                    <a href="https://github.com/JayaniMalsha" class="hover:text-blue-400 transition">GitHub</a>
-                    <a href="https://wa.me/94758072622" class="hover:text-blue-400 transition">WhatsApp</a>
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-8 md:mb-0">
+                    <h3 class="text-2xl font-bold gradient-text mb-4">Jayani Malsha</h3>
+                    <p class="text-gray-400">Building the future, one project at a time.</p>
                 </div>
+                <div class="flex space-x-8">
+                    <a href="https://www.linkedin.com/in/jayani-malsha-6a6822266" 
+                       class="hover:text-blue-400 transition">
+                        <i class="fab fa-linkedin text-2xl"></i>
+                    </a>
+                    <a href="https://github.com/JayaniMalsha" 
+                       class="hover:text-blue-400 transition">
+                        <i class="fab fa-github text-2xl"></i>
+                    </a>
+                    <a href="https://wa.me/94758072622" 
+                       class="hover:text-blue-400 transition">
+                        <i class="fab fa-whatsapp text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p>© 2025 Jayani Malsha. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
+    <!-- Scroll to top button -->
+    <button class="scroll-top bg-blue-600 text-white p-4 rounded-full shadow-lg">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+   <script>
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectItems = document.querySelectorAll('.project-item');
+
+        filterBtns.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.getAttribute('data-filter');
+                filterProjects(filter);
+            });
+        });
+
+        function filterProjects(filter) {
+            projectItems.forEach(item => {
+                const category = item.getAttribute('data-category');
+                if (filter === 'all' || category === filter) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Scroll to top functionality
+        const scrollBtn = document.querySelector('.scroll-top');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 100) {
+                scrollBtn.classList.add('visible');
+            } else {
+                scrollBtn.classList.remove('visible');
+            }
+        });
+
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
 </body>
 </html>
