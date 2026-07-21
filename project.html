@@ -157,7 +157,13 @@
 
 }
 
+        .section-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            letter-spacing: 0.15em;
+            color: var(--accent-c);
+            font-size: 0.75rem;
 
+        }
 
 /* Dark mode GitHub chart */
 
@@ -233,6 +239,19 @@ html[data-theme="dark"] .github-title {
 
 }
 
+/* Filter Button Active State */
+.filter-btn {
+    transition: all 0.3s ease;
+}
+
+/* Active button color */
+.filter-btn.active {
+    background: linear-gradient(135deg, var(--accent-a), var(--accent-b)) !important;
+    color: white !important;
+    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(37, 99, 235, 0.25);
+}
 
         .scroll-top {
             position: fixed;
@@ -316,10 +335,11 @@ html[data-theme="dark"] .github-title {
 
     <!-- Hero Section -->
     <header class="hero-pattern py-20">
-        <div class="container mx-auto px-6 text-center">
-            <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-6">
-                My <span class="gradient-text">Projects</span>
-            </h1>
+        <div class="container mx-auto px-6 text-center"> <br>           
+             <div class="container mx-auto px-6 text-center">
+            <p class="section-eyebrow mb-2" data-aos="fade-up">SELECTED WORK</p>      
+            <h1 class="text-3xl md:text-5xl font-bold text-gray-800 mb-6">
+                My Projects            </h1>
             <p class="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
                 Explore my journey through technology, featuring projects in machine learning, 
                 web development, and innovative software solutions.
@@ -334,7 +354,12 @@ html[data-theme="dark"] .github-title {
 			<button class="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition filter-btn" data-filter="ml">
 				<i class="fas fa-brain mr-2"></i>ML/AI
 			</button>
-
+			<button class="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition filter-btn" data-filter="soft">
+				<i class="fas fa-brain mr-2"></i>Software
+			</button>			
+                        <button class="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition filter-btn" data-filter="game">
+				<i class="fas fa-brain mr-2"></i>Game
+			</button>
             </div>
         </div>
     </header>
@@ -345,7 +370,7 @@ html[data-theme="dark"] .github-title {
 
             <!-- Heart Disease Prediction -->
             <div class="project-card rounded-xl overflow-hidden project-item ml" data-category="ml">
-                <div class="project-image" style="background-image: url('/api/placeholder/400/200')"></div>
+                <div class="project-image" style="background-image: url('images/heart.jpg')"></div>
                 <div class="p-6">
                     <div class="flex items-center justify-between mb-4">
                         <h3 class="text-xl font-bold text-gray-800">Heart Disease Prediction</h3>
@@ -370,8 +395,8 @@ html[data-theme="dark"] .github-title {
             </div>
 
             <!-- Ransomware Detector -->
-            <div class="project-card rounded-xl overflow-hidden">
-                <div class="project-image" style="background-image: url('/api/placeholder/400/200')"></div>
+            <div class="project-card rounded-xl overflow-hidden project-item" data-category="ml">
+                <div class="project-image" style="background-image: url('images/ransomware.jpg')"></div>
                 <div class="p-6">
                     <h3 class="text-xl font-bold text-gray-800">Ransomware Detector</h3>
                     <p class="text-gray-600 mb-4">
@@ -382,7 +407,7 @@ html[data-theme="dark"] .github-title {
                         <span class="tag text-white px-4 py-1 rounded-full text-sm">Machine Learning</span>
                         <span class="tag text-white px-4 py-1 rounded-full text-sm">Data Science</span>
                     </div>
-                    <a href="https://github.com/JayaniMalsha/Ransomware-Detector-App" 
+                    <a href="https://github.com/JayaniMalsha/Ransomware_Risk_Predictor" 
                        class="github-btn text-white px-6 py-2 rounded-lg inline-flex items-center">
                         <i class="fab fa-github mr-2"></i>
                         View Project
@@ -391,8 +416,8 @@ html[data-theme="dark"] .github-title {
             </div>
 
             <!-- AR Fashion Application -->
-            <div class="project-card rounded-xl overflow-hidden">
-                <div class="project-image" style="background-image: url('/api/placeholder/400/200')"></div>
+            <div class="project-card rounded-xl overflow-hidden project-item" data-category="ml">
+                <div class="project-image" style="background-image: url('images/fashion.jpg')"></div>
                 <div class="p-6">
                     <h3 class="text-xl font-bold text-gray-800">AR Fashion Application</h3>
                     <p class="text-gray-600 mb-4">
@@ -413,8 +438,8 @@ html[data-theme="dark"] .github-title {
             </div>
 
             <!-- Health Care Management System -->
-            <div class="project-card rounded-xl overflow-hidden">
-                <div class="project-image" style="background-image: url('/api/placeholder/400/200')"></div>
+            <div class="project-card rounded-xl overflow-hidden project-item" data-category="soft">
+                <div class="project-image" style="background-image: url('images/health.jpg')"></div>
                 <div class="p-6">
                     <h3 class="text-xl font-bold text-gray-800">Health Care Management System</h3>
                     <p class="text-gray-600 mb-4">
@@ -433,8 +458,8 @@ html[data-theme="dark"] .github-title {
             </div>
 
             <!-- Beach Hotel Website -->
-            <div class="project-card rounded-xl overflow-hidden" data-category="web">
-                <div class="project-image" style="background-image: url('/api/placeholder/400/200')"></div>
+            <div class="project-card rounded-xl overflow-hidden project-item" data-category="web">
+                <div class="project-image" style="background-image: url('images/beach.jpg')"></div>
                 <div class="p-6">
                     <h3 class="text-xl font-bold text-gray-800">Beach Hotel Website</h3>
                     <p class="text-gray-600 mb-4">
@@ -455,8 +480,8 @@ html[data-theme="dark"] .github-title {
 
             
             <!-- Sports Website -->
-            <div class="project-card rounded-xl overflow-hidden">
-                <div class="project-image" style="background-image: url('/api/placeholder/400/200')"></div>
+            <div class="project-card rounded-xl overflow-hidden project-item" data-category="web">
+                <div class="project-image" style="background-image: url('images/sports.jpg')"></div>
                 <div class="p-6">
                     <h3 class="text-xl font-bold text-gray-800">Sports Website</h3>
                     <p class="text-gray-600 mb-4">
@@ -476,8 +501,8 @@ html[data-theme="dark"] .github-title {
             </div>
 
             <!-- Sliding Puzzle Solver -->
-            <div class="project-card rounded-xl overflow-hidden">
-                <div class="project-image" style="background-image: url('/api/placeholder/400/200')"></div>
+            <div class="project-card rounded-xl overflow-hidden project-item" data-category="soft">
+                <div class="project-image" style="background-image: url('images/puzzle.jpg')"></div>
                 <div class="p-6">
                     <h3 class="text-xl font-bold text-gray-800">Sliding Puzzle Solver</h3>
                     <p class="text-gray-600 mb-4">
@@ -496,8 +521,8 @@ html[data-theme="dark"] .github-title {
             </div>
 
             <!-- Foodie's Fave Queue Management System -->
-            <div class="project-card rounded-xl overflow-hidden">
-                <div class="project-image" style="background-image: url('/api/placeholder/400/200')"></div>
+            <div class="project-card rounded-xl overflow-hidden project-item" data-category="soft">
+                <div class="project-image" style="background-image: url('images/food.jpg')"></div>
                 <div class="p-6">
                     <h3 class="text-xl font-bold text-gray-800">Foodie's Fave Queue Management System</h3>
                     <p class="text-gray-600 mb-4">
@@ -516,8 +541,8 @@ html[data-theme="dark"] .github-title {
             </div>
 
             <!-- Student Progression Predictor -->
-            <div class="project-card rounded-xl overflow-hidden">
-                <div class="project-image" style="background-image: url('/api/placeholder/400/200')"></div>
+            <div class="project-card rounded-xl overflow-hidden project-item" data-category="soft">
+                <div class="project-image" style="background-image: url('images/student.png')"></div>
                 <div class="p-6">
                     <h3 class="text-xl font-bold text-gray-800">Student Progression Predictor</h3>
                     <p class="text-gray-600 mb-4">
@@ -535,8 +560,8 @@ html[data-theme="dark"] .github-title {
             </div>
 
             <!-- GUI Shopping Management System -->
-            <div class="project-card rounded-xl overflow-hidden">
-                <div class="project-image" style="background-image: url('/api/placeholder/400/200')"></div>
+            <div class="project-card rounded-xl overflow-hidden project-item" data-category="soft">
+                <div class="project-image" style="background-image: url('images/shopping.jpg')"></div>
                 <div class="p-6">
                     <h3 class="text-xl font-bold text-gray-800">GUI Shopping Management System</h3>
                     <p class="text-gray-600 mb-4">
@@ -554,8 +579,470 @@ html[data-theme="dark"] .github-title {
                     </a>
                 </div>
             </div>
+ 
+<!-- Booking Platform REST API -->
+<div class="project-card rounded-xl overflow-hidden project-item" data-category="soft">
+    <div class="project-image" style="background-image: url('images/booking.jpg')"></div>
+
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-gray-800">
+            Booking Platform REST API
+        </h3>
+
+        <p class="text-gray-600 mb-4">
+            Developed a RESTful booking platform using NestJS with JWT authentication 
+            and refresh token support. Implemented CRUD APIs for service and booking 
+            management with validation, pagination, filtering, and business rule enforcement.
+        </p>
+
+        <div class="flex flex-wrap gap-2 mb-6">
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">NestJS</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">TypeScript</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">SQLite</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">TypeORM</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">JWT</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">REST API</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Swagger</span>
+        </div>
+
+        <a href="https://github.com/JayaniMalsha/Booking-Platform-REST-API"
+           target="_blank"
+           class="github-btn text-white px-6 py-2 rounded-lg inline-flex items-center">
+            <i class="fab fa-github mr-2"></i>
+            View Project
+        </a>
+    </div>
+</div>
+
+<!-- Image to Text Converter -->
+<div class="project-card rounded-xl overflow-hidden project-item" data-category="soft">
+    <div class="project-image" style="background-image: url('images/images.jpg')"></div>
+
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-gray-800">
+            Image to Text Converter
+        </h3>
+
+        <p class="text-gray-600 mb-4">
+            Developed a GUI-based image text extraction tool using Python, Tkinter, and Tesseract OCR.
+            The application allows users to upload images, extract text automatically, and copy the extracted content through an interactive interface.
+        </p>
+
+        <div class="flex flex-wrap gap-2 mb-6">
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Python</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Tkinter</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Tesseract OCR</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Pillow</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">GUI Development</span>
+        </div>
+
+        <a href="https://github.com/JayaniMalsha/Image_to_Text_Converter"
+           target="_blank"
+           class="github-btn text-white px-6 py-2 rounded-lg inline-flex items-center">
+            <i class="fab fa-github mr-2"></i>
+            View Project
+        </a>
+    </div>
+</div>
+
+<!-- Network Condition Prediction -->
+<div class="project-card rounded-xl overflow-hidden project-item" data-category="ml">
+    <div class="project-image" style="background-image: url('images/network.jpg')"></div>
+
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-gray-800">
+            Network Condition Prediction using Random Forest
+        </h3>
+
+        <p class="text-gray-600 mb-4">
+            Developed a machine learning model to predict network conditions based on traffic parameters such as packet size, latency, throughput, and packet loss. Implemented data preprocessing, feature scaling, and Random Forest classification to analyze and optimize network performance.
+        </p>
+
+        <div class="flex flex-wrap gap-2 mb-6">
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Python</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Machine Learning</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Random Forest</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Scikit-learn</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Data Science</span>
+        </div>
+
+        <a href="https://github.com/JayaniMalsha/NetPredict-Netwok-Condition-Prediction"
+           target="_blank"
+           class="github-btn text-white px-6 py-2 rounded-lg inline-flex items-center">
+            <i class="fab fa-github mr-2"></i>
+            View Project
+        </a>
+    </div>
+</div>
+
+<!-- Hotel Review Text Analytics -->
+<div class="project-card rounded-xl overflow-hidden project-item" data-category="ml">
+    <div class="project-image" style="background-image: url('images/hotel.jpg')"></div>
+
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-gray-800">
+            Hotel Review Text Analytics
+        </h3>
+
+        <p class="text-gray-600 mb-4">
+            Developed an NLP-based text analytics system to analyze Sri Lankan hotel reviews using sentiment analysis, aspect-based analysis, and tokenization techniques. Explored WordPiece, BPE, and multilingual tokenization approaches for handling diverse review text and improving model performance.
+        </p>
+
+        <div class="flex flex-wrap gap-2 mb-6">
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Python</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">NLP</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Text Analytics</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Sentiment Analysis</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">BERT Tokenization</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Machine Learning</span>
+        </div>
+
+        <a href="https://github.com/JayaniMalsha/Text-Analytics-for-Sri-Lankan-Hotel-Reviews"
+           target="_blank"
+           class="github-btn text-white px-6 py-2 rounded-lg inline-flex items-center">
+            <i class="fab fa-github mr-2"></i>
+            View Project
+        </a>
+    </div>
+</div>
+
+<!-- UI Automation Testing with Cucumber & Serenity BDD -->
+<div class="project-card rounded-xl overflow-hidden project-item" data-category="soft">
+    <div class="project-image" style="background-image: url('images/seranity.jpg')"></div>
+
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-gray-800">
+            UI Automation Testing with Cucumber & Serenity BDD
+        </h3>
+
+        <p class="text-gray-600 mb-4">
+            Developed an automated UI testing framework using Cucumber and Serenity BDD.
+            Implemented Behavior-Driven Development (BDD) test scenarios with automated
+            execution, validation, and detailed test reporting using Maven.
+        </p>
+
+        <div class="flex flex-wrap gap-2 mb-6">
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Java</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Cucumber</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Serenity BDD</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Selenium</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Maven</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">BDD Testing</span>
+        </div>
+
+        <a href="https://github.com/JayaniMalsha/serenity-cucumber-demo"
+           target="_blank"
+           class="github-btn text-white px-6 py-2 rounded-lg inline-flex items-center">
+            <i class="fab fa-github mr-2"></i>
+            View Project
+        </a>
+    </div>
+</div>
+
+<!-- DentAssistAI -->
+<div class="project-card rounded-xl overflow-hidden project-item" data-category="ml web">
+    <div class="project-image" style="background-image: url('images/dent.jpg')"></div>
+
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-gray-800">
+            DentAssistAI: Multimodal Explainable Dental Diagnosis Assistant
+        </h3>
+
+        <p class="text-gray-600 mb-4">
+            Developed an AI-powered web application that combines Computer Vision and NLP to diagnose dental diseases from intraoral images and patient symptoms. Features include Explainable AI (Grad-CAM), PDF report generation, secure authentication, and patient history tracking.
+        </p>
+
+        <div class="flex flex-wrap gap-2 mb-6">
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">FastAPI</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">PyTorch</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Transformers</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">OpenCV</span>
+        </div>
+
+        <div class="flex flex-wrap gap-3">
+            <a href="https://github.com/JayaniMalsha/Dental-Diagnosis-Assistant"
+               target="_blank"
+               class="github-btn text-white px-3 py-2 rounded-lg inline-flex items-center">
+                <i class="fab fa-github mr-2"></i>
+                View Project
+            </a>
+
+            <a href="https://huggingface.co/spaces/jayani-malsha/DentAssistAI-backend"
+               target="_blank"
+               class="github-btn text-white px-3 py-2 rounded-lg inline-flex items-center">
+                <i class="fas fa-globe mr-2"></i>
+                Live Demo
+            </a>
+
+            <a href="https://youtu.be/HgA4e76UArY"
+               target="_blank"
+               class="github-btn text-white px-3 py-2 rounded-lg inline-flex items-center">
+                <i class="fas fa-play mr-2"></i>
+                Demo Video
+            </a>
         </div>
     </div>
+</div>
+
+<!-- ATS Resume Expert -->
+<div class="project-card rounded-xl overflow-hidden project-item" data-category="web ml">
+    <div class="project-image" style="background-image: url('images/ats.jpg')"></div>
+
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-gray-800">
+            ATS Resume Expert
+        </h3>
+
+        <p class="text-gray-600 mb-4">
+            Developed an AI-powered ATS resume screening application that evaluates resumes against job descriptions, calculates ATS match scores, identifies missing keywords, and provides personalized improvement suggestions using Google Gemini AI.
+        </p>
+
+        <div class="flex flex-wrap gap-2 mb-6">
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Python</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Streamlit</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Gemini AI</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Generative AI</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">PDF Processing</span>
+        </div>
+
+        <div class="flex gap-3">
+            <a href="https://github.com/JayaniMalsha/ATS-Tracking-System"
+               target="_blank"
+               class="github-btn text-white px-6 py-2 rounded-lg inline-flex items-center">
+                <i class="fab fa-github mr-2"></i>
+                View Project
+            </a>
+
+            <a href="https://jayanimalsha-ats-tracking-system-app-ssuav5.streamlit.app/"
+               target="_blank"
+               class="github-btn text-white px-3 py-2 rounded-lg inline-flex items-center">
+                <i class="fas fa-globe mr-2"></i>
+                Live Demo
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Agriculture Assistance Chatbot -->
+<div class="project-card rounded-xl overflow-hidden project-item" data-category="web ml">
+    <div class="project-image" style="background-image: url('images/agri.jpg')"></div>
+
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-gray-800">
+            Agriculture Assistance Chatbot
+        </h3>
+
+        <p class="text-gray-600 mb-4">
+            Developed an AI-powered agriculture chatbot that provides farmers with instant guidance on crop management, plant diseases, fertilizers, and farming practices through a user-friendly web interface.
+        </p>
+
+        <div class="flex flex-wrap gap-2 mb-6">
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Python</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Flask</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">NLP</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Chatbot</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">HTML/CSS</span>
+        </div>
+
+        <a href="https://github.com/JayaniMalsha/Agriculture-assistance-chatbot"
+           target="_blank"
+           class="github-btn text-white px-6 py-2 rounded-lg inline-flex items-center">
+            <i class="fab fa-github mr-2"></i>
+            View Project
+        </a>
+    </div>
+</div>
+
+<!-- Banking Assistant Chatbot -->
+<div class="project-card rounded-xl overflow-hidden project-item" data-category="web ml">
+    <div class="project-image" style="background-image: url('images/bank.jpg')"></div>
+
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-gray-800">
+            Banking Assistant Chatbot
+        </h3>
+
+        <p class="text-gray-600 mb-4">
+            Developed a banking assistant chatbot web application using Flask and NLP techniques to answer customer queries, provide banking information, and learn from unrecognized user inputs through query logging.
+        </p>
+
+        <div class="flex flex-wrap gap-2 mb-6">
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Python</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Flask</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">NLTK</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">NLP</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">SQLite</span>
+        </div>
+
+        <a href="https://github.com/JayaniMalsha/Banking-Chatbot"
+           target="_blank"
+           class="github-btn text-white px-6 py-2 rounded-lg inline-flex items-center">
+            <i class="fab fa-github mr-2"></i>
+            View Project
+        </a>
+    </div>
+</div>
+
+<!-- Stock Price Prediction -->
+<div class="project-card rounded-xl overflow-hidden project-item" data-category="ml">
+    <div class="project-image" style="background-image: url('images/stock.jpg')"></div>
+
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-gray-800">
+            Stock Price Prediction
+        </h3>
+
+        <p class="text-gray-600 mb-4">
+            Developed a deep learning-based stock price prediction system using LSTM networks to forecast future stock prices from historical market data. Implemented data preprocessing, feature selection, hyperparameter tuning, and visualization to improve prediction performance.
+        </p>
+
+        <div class="flex flex-wrap gap-2 mb-6">
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Python</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">TensorFlow</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Keras</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">LSTM</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Machine Learning</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Time Series Forecasting</span>
+        </div>
+
+        <a href="https://github.com/JayaniMalsha/Stock-Price-Prediction"
+           target="_blank"
+           class="github-btn text-white px-6 py-2 rounded-lg inline-flex items-center">
+            <i class="fab fa-github mr-2"></i>
+            View Project
+        </a>
+    </div>
+</div>
+
+<!-- IoT Intrusion Detection System -->
+<div class="project-card rounded-xl overflow-hidden project-item" data-category="web ml">
+    <div class="project-image" style="background-image: url('images/iot.jpg')"></div>
+
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-gray-800">
+            IoT Intrusion Detection System
+        </h3>
+
+        <p class="text-gray-600 mb-4">
+            Developed a machine learning-based IoT intrusion detection system that identifies network attacks using a Random Forest classifier trained on the UNSW-NB15 dataset. Integrated SHAP-based explainability and a web interface for real-time intrusion prediction and model insights.
+        </p>
+
+        <div class="flex flex-wrap gap-2 mb-6">
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Python</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Machine Learning</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Random Forest</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">SHAP</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Cybersecurity</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">IoT</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Web Application</span>
+        </div>
+
+        <a href="https://github.com/JayaniMalsha/Intrusion-Detection-System-for-IoT-Networks"
+           target="_blank"
+           class="github-btn text-white px-6 py-2 rounded-lg inline-flex items-center">
+            <i class="fab fa-github mr-2"></i>
+            View Project
+        </a>
+    </div>
+</div>
+
+<!-- ABC Healthcare Big Data Analytics Dashboard -->
+<div class="project-card rounded-xl overflow-hidden project-item" data-category="data ml">
+    <div class="project-image" style="background-image: url('images/abc.jpg')"></div>
+
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-gray-800">
+            ABC Healthcare Big Data Analytics Dashboard
+        </h3>
+
+        <p class="text-gray-600 mb-4">
+            Developed an interactive healthcare analytics dashboard using Power BI and Python to analyze large datasets, identify trends, predict outcomes, and support data-driven decision making through visualization and predictive analytics.
+        </p>
+
+        <div class="flex flex-wrap gap-2 mb-6">
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Power BI</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Python</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Pandas</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Scikit-learn</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Data Analytics</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Big Data</span>
+        </div>
+
+        <a href="https://github.com/JayaniMalsha/Global-Sales-Performance-Profitability-Dashboard_PowerBI-Python"
+           target="_blank"
+           class="github-btn text-white px-6 py-2 rounded-lg inline-flex items-center">
+            <i class="fab fa-github mr-2"></i>
+            View Project
+        </a>
+    </div>
+</div>
+
+<!-- MindBoost – Depression Level Analyzer -->
+<div class="project-card rounded-xl overflow-hidden project-item" data-category="web ml">
+    <div class="project-image" style="background-image: url('images/mind.jpg')"></div>
+
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-gray-800">
+            MindBoost – Depression Level Analyzer
+        </h3>
+
+        <p class="text-gray-600 mb-4">
+            Developed an AI-powered Flask web application that analyzes user text input and classifies emotional states into depression severity levels using OpenAI GPT. Provides real-time AI-based feedback through an interactive web interface.
+        </p>
+
+        <div class="flex flex-wrap gap-2 mb-6">
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Python</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Flask</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">OpenAI GPT</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">NLP</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">JavaScript</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">HTML/CSS</span>
+        </div>
+
+        <a href="https://github.com/JayaniMalsha/Depression-Level-Analyzer_MindBoost"
+           target="_blank"
+           class="github-btn text-white px-6 py-2 rounded-lg inline-flex items-center">
+            <i class="fab fa-github mr-2"></i>
+            View Project
+        </a>
+    </div>
+</div>
+
+
+<!-- Intelligent Game AI System -->
+<div class="project-card rounded-xl overflow-hidden project-item" data-category="game">
+    <div class="project-image" style="background-image: url('images/game.jpg')"></div>
+    <div class="p-6">
+        <h3 class="text-xl font-bold text-gray-800">
+            Intelligent Game AI System with Procedural Terrain & FSM-Based NPCs
+        </h3>
+
+        <p class="text-gray-600 mb-4">
+            Developed a Game AI system featuring a procedurally generated 3D combat arena with intelligent NPC behaviour.
+            Implemented procedural terrain generation, FSM-based decision-making, and realistic NPC navigation and combat systems.
+        </p>
+
+        <div class="flex flex-wrap gap-2 mb-6">
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Unity</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">C#</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Game AI</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">FSM</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">NavMesh</span>
+            <span class="tag text-white px-4 py-1 rounded-full text-sm">Procedural Generation</span>
+        </div>
+
+        <a href="https://youtu.be/iY62zgSJj0k" 
+           class="github-btn text-white px-6 py-2 rounded-lg inline-flex items-center"
+           target="_blank">
+            <i class="fas fa-play mr-2"></i>
+            View Demo
+        </a>
+    </div>
+</div>
+
+       </div>
+    </div>
+
 </section>
 
 
@@ -567,14 +1054,17 @@ html[data-theme="dark"] .github-title {
 <h2 class="github-title text-3xl md:text-4xl font-bold display-font mb-10" data-aos="fade-up">
     GitHub contributions
 </h2>
-            <div class="github-card rounded-xl p-6 max-w-3xl mx-auto overflow-x-auto" data-aos="zoom-in">
-                <img src="https://ghchart.rshah.org/7c3aed/JayaniMalsha" alt="Jayani Malsha's GitHub contribution graph" class="mx-auto min-w-[600px]" />
-            </div>
-            <a href="https://github.com/JayaniMalsha" class="inline-block mt-6" style="color: var(--accent-a);">
-                <i class="fa-brands fa-github mr-2"></i>View full profile on GitHub
+
+            <a href="https://github.com/JayaniMalsha"
+               target="_blank"
+               class="github-btn text-white px-6 py-3 rounded-lg inline-flex items-center mt-8">
+                <i class="fab fa-github mr-2"></i>
+                Visit GitHub Profile
             </a>
         </div>
+
     </section>
+
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">
@@ -611,27 +1101,37 @@ html[data-theme="dark"] .github-title {
     </button>
 
    <script>
-        // Filter functionality
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const projectItems = document.querySelectorAll('.project-item');
+// Filter functionality
+const filterBtns = document.querySelectorAll('.filter-btn');
+const projectItems = document.querySelectorAll('.project-item');
 
-        filterBtns.forEach(button => {
-            button.addEventListener('click', () => {
-                const filter = button.getAttribute('data-filter');
-                filterProjects(filter);
-            });
+filterBtns.forEach(button => {
+    button.addEventListener('click', () => {
+
+        // Remove active color from all buttons
+        filterBtns.forEach(btn => {
+            btn.classList.remove('active');
         });
 
-        function filterProjects(filter) {
-            projectItems.forEach(item => {
-                const category = item.getAttribute('data-category');
-                if (filter === 'all' || category === filter) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
+        // Add active color to clicked button
+        button.classList.add('active');
+
+        const filter = button.dataset.filter;
+        filterProjects(filter);
+    });
+});
+
+function filterProjects(filter) {
+    projectItems.forEach(item => {
+        const categories = item.dataset.category.split(" ");
+
+        if (filter === "all" || categories.includes(filter)) {
+            item.style.display = "block";
+        } else {
+            item.style.display = "none";
         }
+    });
+}
 
         // Scroll to top functionality
         const scrollBtn = document.querySelector('.scroll-top');
