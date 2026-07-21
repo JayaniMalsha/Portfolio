@@ -3,146 +3,681 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Contact - Jayani Malsha</title>
+
+    <!-- Tailwind -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        .gradient-text {
-            background: linear-gradient(45deg, #2563eb, #7c3aed);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .contact-card {
-            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-            transition: transform 0.3s ease;
-        }
-        .contact-card:hover {
-            transform: translateY(-5px);
-        }
-        .social-btn {
-            transition: all 0.3s ease;
-        }
-        .social-btn:hover {
-            transform: translateY(-2px);
-        }
-        .hero-pattern {
-            background-color: #f8fafc;
-            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
-            background-size: 20px 20px;
-        }
-        .custom-input {
-            transition: border-color 0.3s ease;
-        }
-        .custom-input:focus {
-            border-color: #3b82f6;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-        }
-    </style>
+
+    <!-- AOS Animation -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+
+<style>
+
+:root {
+    --bg-0: #f8fafc;
+    --bg-1: #ffffff;
+    --bg-2: #eef1f6;
+
+    --text-1: #0f172a;
+    --text-2: #475569;
+    --text-3: #94a3b8;
+
+    --border-c: #e2e8f0;
+
+    --accent-a: #2563eb;
+    --accent-b: #7c3aed;
+    --accent-c: #06b6d4;
+}
+
+
+html[data-theme="dark"] {
+
+    --bg-0: #090c14;
+    --bg-1: #10162a;
+    --bg-2: #171f38;
+
+    --text-1: #e8ecf7;
+    --text-2: #a3aec9;
+    --text-3: #616e93;
+
+    --border-c: #232c4a;
+
+    --accent-a: #5b8dff;
+    --accent-b: #a389ff;
+    --accent-c: #22d3ee;
+
+}
+
+
+* {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    background: var(--bg-0);
+    color: var(--text-1);
+
+    font-family: 'Inter', sans-serif;
+
+    transition:
+    background 0.4s ease,
+    color 0.4s ease;
+
+}
+
+
+h1,h2,h3,
+.display-font {
+
+    font-family:'Space Grotesk', sans-serif;
+
+}
+
+
+.mono-font {
+
+    font-family:'JetBrains Mono', monospace;
+
+}
+
+
+/* Gradient Text */
+
+.gradient-text {
+
+    background:
+    linear-gradient(
+        45deg,
+        var(--accent-a),
+        var(--accent-b)
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+}
+
+
+/* Navigation */
+
+.site-nav {
+
+    background:
+    color-mix(
+        in srgb,
+        var(--bg-1) 80%,
+        transparent
+    );
+
+    border-bottom:
+    1px solid var(--border-c);
+
+}
+
+
+.nav-link {
+
+    color:var(--text-2);
+
+    transition:color .2s ease;
+
+}
+
+
+.nav-link:hover,
+.nav-link.active {
+
+    color:var(--accent-a);
+
+}
+
+
+/* Theme Button */
+
+.theme-toggle {
+
+    width:44px;
+    height:44px;
+
+    border-radius:999px;
+
+    border:
+    1px solid var(--border-c);
+
+    background:var(--bg-1);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    cursor:pointer;
+
+}
+
+
+.theme-toggle i {
+
+    color:var(--accent-b);
+
+}
+
+
+
+/* Contact Cards */
+
+.card {
+
+    background:var(--bg-1);
+
+    border:
+    1px solid var(--border-c);
+
+    transition:
+    transform .3s ease,
+    box-shadow .3s ease,
+    border-color .3s ease;
+
+}
+
+
+.card:hover {
+
+    transform:translateY(-6px);
+
+    border-color:var(--accent-a);
+
+    box-shadow:
+    0 20px 40px -20px
+    color-mix(
+        in srgb,
+        var(--accent-a) 45%,
+        transparent
+    );
+
+}
+
+
+
+/* Inputs */
+
+.custom-input {
+
+    background:var(--bg-1);
+
+    color:var(--text-1);
+
+    border:
+    1px solid var(--border-c);
+
+}
+
+
+.custom-input:focus {
+
+    border-color:var(--accent-a);
+
+    outline:none;
+
+}
+
+
+
+/* Social Buttons */
+
+.social-btn {
+
+    transition:
+    transform .3s ease,
+    color .3s ease;
+
+}
+
+
+.social-btn:hover {
+
+    transform:translateY(-3px);
+
+    color:var(--accent-a);
+
+}
+
+
+
+/* Section Label */
+
+.section-eyebrow {
+
+    font-family:'JetBrains Mono',monospace;
+
+    letter-spacing:.15em;
+
+    color:var(--accent-c);
+
+    font-size:.75rem;
+
+}
+
+
+
+/* Hero */
+
+.hero-section {
+
+    background:var(--bg-0);
+
+}
+
+
+
+</style>
+
 </head>
-<body class="bg-gray-50">
+<body>
+
+<!-- Navigation -->
     <!-- Navigation -->
-    <nav class="bg-white shadow-sm sticky top-0 z-50">
+    <nav class="site-nav fixed w-full backdrop-blur-sm z-50">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
-                <a href="home.html" class="text-xl font-bold gradient-text">
-                    Jayani Malsha
-                </a>
-                <div class="hidden md:flex space-x-8">
-                    <a href="home.html" class="text-gray-600 hover:text-blue-600">Home</a>
-                    <a href="about.html" class="text-gray-600 hover:text-blue-600">About</a>
-                    <a href="project.html" class="text-gray-600 hover:text-blue-600">Projects</a>
-                    <a href="contact.html" class="text-blue-600">Contact</a>
+                <div class="text-xl font-bold gradient-text display-font">Jayani Malsha</div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="home.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="home.html#skills" class="nav-link">Skills</a>
+                    <a href="project.html" class="nav-link">Projects</a>
+                    <a href="contact.html" class="nav-link active">Contact</a>
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark and light theme">
+                        <i class="fa-solid fa-moon" id="theme-icon"></i>
+                    </button>
                 </div>
+                <button id="mobile-menu-btn" class="md:hidden theme-toggle" aria-label="Open menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden flex-col mt-4 space-y-3 pb-2">
+                <a href="home.html" class="nav-link block">Home</a>
+                <a href="about.html" class="nav-link block">About</a>
+                <a href="home.html#skills" class="nav-link block">Skills</a>
+                <a href="project.html" class="nav-link block">Projects</a>
+                <a href="contact.html" class="nav-link block">Contact</a>
+                <button id="theme-toggle-mobile" class="nav-link block text-left">Toggle theme</button>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="hero-pattern py-5">
-        <div class="container mx-auto px-6">
-            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Get in Touch</h1>
-            <p class="text-xl text-gray-600 max-w-2xl">
-                I'm always open to new opportunities, collaborations, and interesting conversations.
-            </p>
-        </div>
-    </header>
 
-    <!-- Contact Section -->
-    <section class="py-16">
-        <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-12">
-                <!-- Contact Form -->
-                <div class="bg-white rounded-xl shadow-md p-8">
-                    <h2 class="text-2xl font-bold mb-6">Send Me a Message</h2>
-                    <form action="mailto:jayanikatugampala4@gmail.com" method="POST" enctype="text/plain">
-                        <div class="mb-6">
-                            <label for="name" class="block text-gray-700 mb-2">Your Name</label>
-                            <input type="text" id="name" name="name" required
-                                class="custom-input w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none"
-                                placeholder="Enter your name">
-                        </div>
-                        <div class="mb-6">
-                            <label for="email" class="block text-gray-700 mb-2">Your Email</label>
-                            <input type="email" id="email" name="email" required
-                                class="custom-input w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none"
-                                placeholder="Enter your email">
-                        </div>
-                        <div class="mb-6">
-                            <label for="message" class="block text-gray-700 mb-2">Message</label>
-                            <textarea id="message" name="message" rows="5" required
-                                class="custom-input w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none resize-none"
-                                placeholder="Enter your message"></textarea>
-                        </div>
-                        <button type="submit" 
-                            class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-lg hover:opacity-90 transition">
-                            Send Message
-                        </button>
-                    </form>
-                </div>
 
-                <!-- Contact Information -->
-                <div class="space-y-6">
-                    <div class="contact-card p-6 rounded-xl shadow-md">
-                        <h3 class="text-xl font-bold mb-4">Connect with Me</h3>
-                        <div class="space-y-4">
-                            <a href="https://www.linkedin.com/in/jayani-malsha-6a6822266" target="_blank"
-                                class="social-btn flex items-center text-gray-700 hover:text-blue-600">
-                                <i class="fab fa-linkedin text-2xl w-8"></i>
-                                <span>LinkedIn</span>
-                            </a>
-                            <a href="mailto:jayanikatugampala4@gmail.com"
-                                class="social-btn flex items-center text-gray-700 hover:text-blue-600">
-                                <i class="far fa-envelope text-2xl w-8"></i>
-                                <span>jayanikatugampala4@gmail.com</span>
-                            </a>
-                            <a href="https://wa.me/94758072622" target="_blank"
-                                class="social-btn flex items-center text-gray-700 hover:text-green-600">
-                                <i class="fab fa-whatsapp text-2xl w-8"></i>
-                                <span>WhatsApp</span>
-                            </a>
-                        </div>
-                    </div>
 
-                    <div class="contact-card p-6 rounded-xl shadow-md">
-                        <h3 class="text-xl font-bold mb-4">Quick Response</h3>
-                        <p class="text-gray-600">
-                            I typically respond within 24 hours. For urgent matters, 
-                            feel free to reach out via WhatsApp.
-                        </p>
-                    </div>
+<!-- Hero Section -->
 
-                    <div class="contact-card p-6 rounded-xl shadow-md">
-                        <h3 class="text-xl font-bold mb-4">Let's Collaborate</h3>
-                        <p class="text-gray-600">
-                            Whether you have a project in mind or just want to connect, 
-                            I'm always interested in new opportunities and collaborations.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<header class="hero-section pt-32 pb-16">
 
+    <div class="container mx-auto px-6">
+
+        <p class="section-eyebrow mb-3">
+            CONTACT
+        </p>
+
+
+        <h1 class="text-4xl md:text-5xl font-bold display-font mb-5">
+            Get in Touch
+        </h1>
+
+
+        <p class="text-xl max-w-2xl" style="color:var(--text-2);">
+
+            I'm always open to new opportunities,
+            collaborations, and interesting conversations.
+
+        </p>
+
+
+    </div>
+
+</header>
+
+
+
+
+<!-- Contact Section -->
+
+<section class="py-16">
+
+<div class="container mx-auto px-6">
+
+
+<div class="grid md:grid-cols-2 gap-12">
+
+
+<!-- Contact Form -->
+
+<div class="card rounded-xl p-8"
+     data-aos="fade-right">
+
+
+<h2 class="text-2xl font-bold mb-6 display-font">
+
+Send Me a Message
+
+</h2>
+
+
+
+<form action="mailto:jayanikatugampala4@gmail.com"
+      method="POST"
+      enctype="text/plain">
+
+
+<div class="mb-6">
+
+<label class="block mb-2"
+style="color:var(--text-2);">
+
+Your Name
+
+</label>
+
+
+<input 
+type="text"
+name="name"
+required
+
+class="custom-input w-full px-4 py-3 rounded-lg"
+
+placeholder="Enter your name">
+
+</div>
+
+
+
+
+<div class="mb-6">
+
+
+<label class="block mb-2"
+style="color:var(--text-2);">
+
+Your Email
+
+</label>
+
+
+<input
+
+type="email"
+name="email"
+required
+
+class="custom-input w-full px-4 py-3 rounded-lg"
+
+placeholder="Enter your email">
+
+
+</div>
+
+
+
+
+<div class="mb-6">
+
+
+<label class="block mb-2"
+style="color:var(--text-2);">
+
+Message
+
+</label>
+
+
+<textarea
+
+name="message"
+rows="5"
+required
+
+class="custom-input w-full px-4 py-3 rounded-lg resize-none"
+
+placeholder="Enter your message">
+
+</textarea>
+
+
+</div>
+
+
+
+
+<button
+
+type="submit"
+
+class="w-full text-white py-3 rounded-lg transition"
+
+style="
+background:linear-gradient(
+45deg,
+var(--accent-a),
+var(--accent-b)
+);
+">
+
+Send Message
+
+</button>
+
+
+
+</form>
+
+
+</div>
+
+
+
+
+
+<!-- Contact Information -->
+
+
+<div class="space-y-6"
+data-aos="fade-left">
+
+
+
+<div class="card rounded-xl p-6">
+
+
+<h3 class="text-xl font-bold mb-5 display-font">
+
+Connect with Me
+
+</h3>
+
+
+
+<div class="space-y-5">
+
+
+
+<a href="https://www.linkedin.com/in/jayani-malsha-6a6822266"
+
+target="_blank"
+
+class="social-btn flex items-center gap-4"
+
+style="color:var(--text-2);">
+
+
+<i class="fab fa-linkedin text-2xl"
+style="color:var(--accent-a);"></i>
+
+
+<span>
+LinkedIn
+</span>
+
+
+</a>
+
+
+
+
+
+<a href="mailto:jayanikatugampala4@gmail.com"
+
+class="social-btn flex items-center gap-4"
+
+style="color:var(--text-2);">
+
+
+<i class="fa-solid fa-envelope text-2xl"
+style="color:var(--accent-b);"></i>
+
+
+<span>
+
+jayanikatugampala4@gmail.com
+
+</span>
+
+
+</a>
+
+
+
+
+
+
+<a href="https://wa.me/94758072622"
+
+target="_blank"
+
+class="social-btn flex items-center gap-4"
+
+style="color:var(--text-2);">
+
+
+<i class="fab fa-whatsapp text-2xl text-green-500"></i>
+
+
+<span>
+
+WhatsApp
+
+</span>
+
+
+</a>
+
+
+
+<a href="https://github.com/JayaniMalsha"
+
+target="_blank"
+
+class="social-btn flex items-center gap-4"
+
+style="color:var(--text-2);">
+
+
+<i class="fab fa-github text-2xl"
+style="color:var(--accent-c);"></i>
+
+
+<span>
+
+GitHub
+
+</span>
+
+
+</a>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div class="card rounded-xl p-6">
+
+
+<h3 class="text-xl font-bold mb-3">
+
+Availability
+
+</h3>
+
+
+<p style="color:var(--text-2);">
+
+I am currently seeking full-time opportunities
+in Software Engineering, AI/ML Engineering,
+Backend Development, and related technology roles.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+<div class="card rounded-xl p-6">
+
+
+<h3 class="text-xl font-bold mb-3">
+
+Let's Collaborate
+
+</h3>
+
+
+<p style="color:var(--text-2);">
+
+
+Whether you have a project idea,
+job opportunity, or simply want to connect,
+feel free to reach out.
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+</div>
+
+</section>
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-8">
         <div class="container mx-auto px-6 text-center">
@@ -154,6 +689,49 @@
                 </div>
         </div>
     </footer>
+<script>
 
+const root = document.documentElement;
+const themeIcon = document.getElementById("theme-icon");
+
+function applyTheme(theme){
+
+    root.setAttribute("data-theme",theme);
+
+    themeIcon.className =
+    theme==="dark"
+    ? "fa-solid fa-sun"
+    : "fa-solid fa-moon";
+
+}
+
+
+applyTheme("dark");
+
+
+document
+.getElementById("theme-toggle")
+.addEventListener("click",()=>{
+
+let current =
+root.getAttribute("data-theme");
+
+
+applyTheme(
+current==="dark"
+?"light"
+:"dark"
+);
+
+});
+
+
+AOS.init({
+duration:1000,
+once:true
+});
+
+
+</script>
 </body>
 </html>

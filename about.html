@@ -6,328 +6,355 @@
     <title>About - Jayani Malsha</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <style>
-        .gradient-bg {
-            background: linear-gradient(135deg, #f3f4f6 0%, #fff 100%);
+        :root {
+            --bg-0: #f8fafc;
+            --bg-1: #ffffff;
+            --bg-2: #eef1f6;
+            --text-1: #0f172a;
+            --text-2: #475569;
+            --text-3: #94a3b8;
+            --border-c: #e2e8f0;
+            --accent-a: #2563eb;
+            --accent-b: #7c3aed;
+            --accent-c: #06b6d4;
         }
-        .timeline-dot::before {
-            content: '';
-            position: absolute;
-            left: -39px;
-            top: 0;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: #3b82f6;
-            border: 4px solid #fff;
-            transition: transform 0.3s ease;
+        html[data-theme="dark"] {
+            --bg-0: #090c14;
+            --bg-1: #10162a;
+            --bg-2: #171f38;
+            --text-1: #e8ecf7;
+            --text-2: #a3aec9;
+            --text-3: #616e93;
+            --border-c: #232c4a;
+            --accent-a: #5b8dff;
+            --accent-b: #a389ff;
+            --accent-c: #22d3ee;
         }
-        .timeline-dot:hover::before {
-            transform: scale(1.2);
+        * { scroll-behavior: smooth; }
+        body {
+            background: var(--bg-0);
+            color: var(--text-1);
+            font-family: 'Inter', sans-serif;
+            transition: background 0.4s ease, color 0.4s ease;
         }
-        .timeline-line::before {
-            content: '';
-            position: absolute;
-            left: -30px;
-            top: 0;
-            width: 2px;
-            height: 100%;
-            background: linear-gradient(to bottom, #3b82f6 0%, #60a5fa 100%);
-        }
-        .skill-badge {
-            transition: all 0.3s ease;
-        }
-        .skill-badge:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
+        h1, h2, h3, .display-font { font-family: 'Space Grotesk', sans-serif; }
+        .mono-font { font-family: 'JetBrains Mono', monospace; }
         .gradient-text {
-            background: linear-gradient(45deg, #3b82f6, #60a5fa);
+            background: linear-gradient(45deg, var(--accent-a), var(--accent-b));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        nav.site-nav {
+            background: color-mix(in srgb, var(--bg-1) 80%, transparent);
+            border-bottom: 1px solid var(--border-c);
+        }
+        .nav-link { color: var(--text-2); transition: color 0.2s ease; }
+        .nav-link:hover, .nav-link.active { color: var(--accent-a); }
+
+        .theme-toggle {
+            width: 44px; height: 44px;
+            border-radius: 999px;
+            border: 1px solid var(--border-c);
+            background: var(--bg-1);
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.3s ease;
+        }
+        .theme-toggle:hover { transform: rotate(20deg) scale(1.05); }
+        .theme-toggle i { color: var(--accent-b); font-size: 18px; }
+
+        .card {
+            background: var(--bg-1);
+            border: 1px solid var(--border-c);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent-a);
+            box-shadow: 0 20px 40px -20px color-mix(in srgb, var(--accent-a) 45%, transparent);
+        }
+
+        .tag-pill {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            padding: 4px 12px;
+            border-radius: 999px;
+            background: var(--bg-2);
+            color: var(--text-2);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+            border: 1px solid transparent;
+            display: inline-block;
+        }
+        .tag-pill:hover { transform: translateY(-2px); border-color: var(--accent-c); }
+
+        .section-eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            letter-spacing: 0.15em;
+            color: var(--accent-c);
+            font-size: 0.75rem;
+        }
+
+        .timeline { position: relative; padding-left: 2rem; }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 6px; top: 6px; bottom: 6px;
+            width: 2px;
+            background: linear-gradient(var(--accent-a), var(--accent-b));
+            opacity: 0.35;
+        }
+        .timeline-item { position: relative; margin-bottom: 2.5rem; }
+        .timeline-item:last-child { margin-bottom: 0; }
+        .timeline-dot {
+            position: absolute;
+            left: -2rem; top: 4px;
+            width: 14px; height: 14px;
+            border-radius: 50%;
+            background: var(--bg-0);
+            border: 2px solid var(--accent-a);
+        }
+        .timeline-item:hover .timeline-dot { background: var(--accent-a); }
+
+        .lang-bar-track { background: var(--bg-2); border-radius: 999px; height: 8px; overflow: hidden; }
+        .lang-bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--accent-a), var(--accent-c)); }
+
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--bg-0); }
+        ::-webkit-scrollbar-thumb { background: var(--border-c); border-radius: 8px; }
+
+        @media (prefers-reduced-motion: reduce) {
+            * { scroll-behavior: auto !important; }
         }
     </style>
 </head>
-<body class="bg-gray-50">
+<body>
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white/80 backdrop-blur-sm shadow-sm z-50">
+    <nav class="site-nav fixed w-full backdrop-blur-sm z-50">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
-                <a href="index.html" class="text-xl font-bold gradient-text">
-                    Jayani Malsha
-                </a>
-                <div class="hidden md:flex space-x-8">
-                    <a href="home.html" class="text-gray-600 hover:text-blue-600 transition">Home</a>
-                    <a href="about.html" class="text-blue-600">About</a>
-                    <a href="project.html" class="text-gray-600 hover:text-blue-600 transition">Projects</a>
-                    <a href="contact.html" class="text-gray-600 hover:text-blue-600 transition">Contact</a>
+                <div class="text-xl font-bold gradient-text display-font">Jayani Malsha</div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="home.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link active">About</a>
+                    <a href="home.html#skills" class="nav-link">Skills</a>
+                    <a href="project.html" class="nav-link">Projects</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark and light theme">
+                        <i class="fa-solid fa-moon" id="theme-icon"></i>
+                    </button>
                 </div>
+                <button id="mobile-menu-btn" class="md:hidden theme-toggle" aria-label="Open menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden flex-col mt-4 space-y-3 pb-2">
+                <a href="home.html" class="nav-link block">Home</a>
+                <a href="about.html" class="nav-link block">About</a>
+                <a href="home.html#skills" class="nav-link block">Skills</a>
+                <a href="project.html" class="nav-link block">Projects</a>
+                <a href="contact.html" class="nav-link block">Contact</a>
+                <button id="theme-toggle-mobile" class="nav-link block text-left">Toggle theme</button>
             </div>
         </div>
     </nav>
 
-    <!-- Header Section -->
-    <header class="gradient-bg pt-24 pb-16">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-center gap-12">
-                <div class="md:w-1/3" data-aos="fade-right">
-                    <img src="images/image3.jpg" alt="Jayani Malsha" class="rounded-full shadow-xl w-64 h-64 mx-auto object-cover" />
-                </div>
-                <div class="md:w-2/3" data-aos="fade-left">
-                    <h1 class="text-4xl font-bold mb-6 gradient-text">About Me</h1>
-                    <div class="bg-white rounded-xl shadow-lg p-8">
-                        <p class="text-gray-600 mb-6 leading-relaxed">
-                            Hi! I'm <span class="font-bold text-blue-600">Jayani Malsha</span>, a third-year Computer Science student at the 
-                            <span class="font-bold">Informatic Institute of Technology (University of Westminster)</span>, pursuing a 
-                            <span class="font-bold text-blue-600">BSc (Hons) in Computer Science</span> 🎓
-                        </p>
-                        <p class="text-gray-600 mb-6 leading-relaxed">
-                            Currently working as a <span class="font-bold text-blue-600">Machine Learning Developer</span> at 
-                            <span class="font-bold">AryaLabs Pvt Ltd</span>, where I focus on developing machine learning models 
-                            and algorithms to solve real-world problems. I specialize in machine learning frameworks such as 
-                            <span class="font-bold">TensorFlow</span> and <span class="font-bold">PyTorch</span> 🤖
-                        </p>
-                        <p class="text-gray-600 leading-relaxed">
-                            I am passionate about <span class="font-bold text-blue-600">web development, AI,</span> and 
-                            <span class="font-bold text-blue-600">machine learning</span>, and I am constantly striving to enhance my skills in these areas. 
-							With a focus on languages such as <span class="font-bold">Python, JavaScript,</span> and <span class="font-bold">React</span> 🐍, I aim to build a strong foundation in IT and contribute to impactful projects. 🌟
-							I am particularly excited about collaborating on <span class="font-bold">open-source projects</span> 🔓, especially those that involve <span class="font-bold">artificial intelligence</span> and <span class="font-bold">machine learning </span>, 
-							and I look forward to applying my knowledge and enthusiasm to create meaningful contributions in the <span class="font-bold">tech industry</span>. 💡
-                        </p>
-                    </div>
-                </div>
-            </div>
+    <!-- Intro -->
+    <section class="pt-32 pb-16">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <p class="section-eyebrow mb-2" data-aos="fade-up">ABOUT ME</p>
+            <h1 class="text-4xl md:text-5xl font-bold mb-8 display-font" data-aos="fade-up">Tell my story</h1>
+            <p class="text-lg leading-relaxed mb-6" style="color: var(--text-2);" data-aos="fade-up">
+                I'm Jayani Malsha, a final-year BSc (Hons) Computer Science undergraduate at the Informatics Institute of Technology, affiliated with the University of Westminster (UK), graduating in September 2026. Over a one-year machine learning internship, I designed and deployed AI solutions across healthcare, cybersecurity, forecasting, and chatbot domains, taking projects from raw data through to trained models and live web interfaces.
+            </p>
+            <p class="text-lg leading-relaxed mb-6" style="color: var(--text-2);" data-aos="fade-up">
+                My career objective is to grow into a machine learning engineer or AI-focused software developer who builds systems that are both technically rigorous and genuinely useful in production, not just accurate in a notebook.
+            </p>
+            <p class="text-lg leading-relaxed mb-6" style="color: var(--text-2);" data-aos="fade-up">
+                I'm most passionate about the point where deep learning meets real software: turning a model into something people can actually rely on, whether that's an API, a dashboard, or a full-stack application. I enjoy the full pipeline, from data preprocessing and model training to backend architecture and deployment.
+            </p>
+            <p class="text-lg leading-relaxed" style="color: var(--text-2);" data-aos="fade-up">
+                My areas of interest span deep learning architectures (CNNs, RNNs, LSTMs, transformers), natural language processing and large language models, time-series forecasting, explainable AI, and backend engineering with Node.js, NestJS, and FastAPI.
+            </p>
         </div>
-    </header>
+    </section>
 
-    <!-- Professional Background -->
-    <section class="py-16">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-12 text-center" data-aos="fade-up">Professional Background</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-xl shadow-lg card-hover" data-aos="zoom-in">
-                    <div class="text-4xl mb-4">🎓</div>
-                    <h3 class="font-bold text-xl mb-4 text-blue-600">Education</h3>
-                    <p class="text-gray-600">Third-year student at University of Westminster, specializing in Computer Science.</p>
-                </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg card-hover" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="text-4xl mb-4">🔧</div>
-                    <h3 class="font-bold text-xl mb-4 text-blue-600">Current Role</h3>
-                    <p class="text-gray-600">Machine Learning Developer at AryaLabs Pvt Ltd, working on machine learning models for various applications.</p>
-                </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg card-hover" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="text-4xl mb-4">💻</div>
-                    <h3 class="font-bold text-xl mb-4 text-blue-600">Passion</h3>
-                    <p class="text-gray-600">Creating impactful projects in web development, AI, and software engineering.</p>
+    <!-- Work Experience -->
+    <section class="py-20" style="background: var(--bg-1);">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <p class="section-eyebrow mb-2" data-aos="fade-up">EXPERIENCE</p>
+            <h2 class="text-3xl font-bold mb-12 display-font" data-aos="fade-up">Work experience</h2>
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-dot"></div>
+                    <div class="card rounded-xl p-6">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+                            <h3 class="font-semibold text-lg">Machine Learning Developer Intern</h3>
+                            <span class="tag-pill">Jul 2024 – Jul 2025</span>
+                        </div>
+                        <p class="text-sm mb-4" style="color: var(--text-3);">Arya Labs (Pvt) Ltd · Remote</p>
+                        <ul class="list-disc list-inside space-y-2 text-sm" style="color: var(--text-2);">
+                            <li>Designed and developed AI/ML solutions across healthcare, cybersecurity, forecasting, and chatbot domains.</li>
+                            <li>Trained and optimized deep learning models including CNN, RNN, LSTM, ANN, ResNet, and VGG architectures.</li>
+                            <li>Implemented supervised and unsupervised learning techniques for classification and predictive analytics tasks.</li>
+                            <li>Developed real-time AI-powered full-stack web applications using Python and R.</li>
+                            <li>Built and deployed end-to-end machine learning pipelines integrating model training, API development, and web interfaces.</li>
+                            <li>Conducted data preprocessing, model evaluation, and optimization.</li>
+                            <li>Built time-series forecasting models using ARIMA for predictive analysis.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Education Timeline -->
-    
-	<section class="py-16 bg-white">
-    <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold mb-12 text-center" data-aos="fade-up">Education Journey</h2>
-        <div class="relative">
-            <div class="ml-12 space-y-12">
-                <div class="relative timeline-dot timeline-line pb-8" data-aos="fade-up">
-                    <div class="bg-white p-6 rounded-xl shadow-lg">
-                        <h3 class="text-xl font-bold mb-2 text-blue-600">BSc (Hons) Computer Science</h3>
-                        <p class="text-gray-600 mb-4">2023 - present | Informatic Institute of Technology</p>
-                        <div class="bg-gray-50 p-6 rounded-lg">
-                            <h4 class="font-bold mb-4 text-gray-700">Key Modules:</h4>
-                            <div class="space-y-4">
-                                <p class="text-gray-600"><span class="font-bold">1st year:</span> Software Development, Web Design and Development, Computer Systems Fundamentals, Trends in Computer Science, Mathematics for Computing</p>
-                                <p class="text-gray-600"><span class="font-bold">2nd year:</span> Machine Learning, Database Systems, Client Server Architectures, Object-Oriented Programming, Algorithms: Theory, Design, and Implementation, Software Development Group Project</p>
-                            </div>
+    <!-- Education -->
+    <section class="py-20">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <p class="section-eyebrow mb-2" data-aos="fade-up">BACKGROUND</p>
+            <h2 class="text-3xl font-bold mb-12 display-font" data-aos="fade-up">Education</h2>
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-dot"></div>
+                    <div class="card rounded-xl p-6">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+                            <h3 class="font-semibold text-lg">BSc (Hons) Computer Science</h3>
+                            <span class="tag-pill">Sep 2022 – Sep 2026</span>
                         </div>
+                        <p class="text-sm mb-4" style="color: var(--text-3);">Informatics Institute of Technology, Colombo — University of Westminster (UK)</p>
+                        <ul class="list-disc list-inside space-y-2 text-sm" style="color: var(--text-2);">
+                            <li>Year 1: Software development (Python, Java), web design and development, computer systems fundamentals.</li>
+                            <li>Year 2: Machine learning, database systems, OOP, algorithms: theory, design and implementation.</li>
+                            <li>Year 3: Industrial internship.</li>
+                            <li>Year 4: Final year project, cyber security, game AI, applied AI, operational research and optimisation.</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="relative timeline-dot timeline-line pb-8" data-aos="fade-up">
-                    <div class="bg-white p-6 rounded-xl shadow-lg">
-                        <h3 class="text-xl font-bold mb-2 text-blue-600">Diploma in Information Technology</h3>
-                        <p class="text-gray-600 mb-4">2022 | ESOFT Metro Campus, Kiribathgoda</p>
-                        <div class="bg-gray-50 p-6 rounded-lg">
-                            <p class="text-gray-600">Focus on Graphics and Multimedia (Photoshop, Windows Movie Maker, Audacity), C#.net Project Practice (Library Management System)</p>
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-dot"></div>
+                    <div class="card rounded-xl p-6">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+                            <h3 class="font-semibold text-lg">Diploma in Information Technology</h3>
+                            <span class="tag-pill">2022 – 2023</span>
                         </div>
+                        <p class="text-sm" style="color: var(--text-3);">ESOFT Metro Campus, Kiribathgoda</p>
                     </div>
                 </div>
-                <div class="relative timeline-dot timeline-line pb-8" data-aos="fade-up">
-                    <div class="bg-white p-6 rounded-xl shadow-lg">
-                        <h3 class="text-xl font-bold mb-2 text-blue-600">Diploma in English</h3>
-                        <p class="text-gray-600 mb-4">2022 | Lassalian English Academy, Mattakkuliya</p>
-                    </div>
-                </div>
-                <div class="relative timeline-dot timeline-line pb-8" data-aos="fade-up">
-                    <div class="bg-white p-6 rounded-xl shadow-lg">
-                        <h3 class="text-xl font-bold mb-2 text-blue-600">GCE Advanced Level</h3>
-                        <p class="text-gray-600 mb-4">2021 | Sri Dharmaloka College, Kelaniya</p>
-                    </div>
-                </div>
-                <div class="relative timeline-dot timeline-line pb-8" data-aos="fade-up">
-                    <div class="bg-white p-6 rounded-xl shadow-lg">
-                        <h3 class="text-xl font-bold mb-2 text-blue-600">GCE Ordinary Level</h3>
-                        <p class="text-gray-600 mb-4">2017 | Sri Dharmaloka College, Kelaniya</p>
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-dot"></div>
+                    <div class="card rounded-xl p-6">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+                            <h3 class="font-semibold text-lg">G.C.E. Advanced Level (Physical Science) &amp; Ordinary Level</h3>
+                            <span class="tag-pill">2007 – 2021</span>
+                        </div>
+                        <p class="text-sm" style="color: var(--text-3);">Sri Dharmaloka College, Kelaniya</p>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-    <!-- Skills Section -->
-<section class="py-16 bg-gray-50">
-    <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold mb-12 text-center" data-aos="fade-up">Skills & Technologies</h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="bg-white p-8 rounded-xl shadow-lg card-hover" data-aos="fade-up">
-                <h3 class="font-bold text-xl mb-6 text-blue-600">Languages</h3>
-                <div class="flex flex-wrap gap-3">
-                    <span class="skill-badge bg-blue-100 text-blue-800 px-4 py-2 rounded-full">Python</span>
-                    <span class="skill-badge bg-blue-100 text-blue-800 px-4 py-2 rounded-full">R</span>
-                    <span class="skill-badge bg-blue-100 text-blue-800 px-4 py-2 rounded-full">Java</span>
-                    <span class="skill-badge bg-blue-100 text-blue-800 px-4 py-2 rounded-full">JavaScript</span>
-                    <span class="skill-badge bg-blue-100 text-blue-800 px-4 py-2 rounded-full">SQL</span>
-                    <span class="skill-badge bg-blue-100 text-blue-800 px-4 py-2 rounded-full">PHP</span>
-                    <span class="skill-badge bg-blue-100 text-blue-800 px-4 py-2 rounded-full">C#</span>
-                    <span class="skill-badge bg-blue-100 text-blue-800 px-4 py-2 rounded-full">HTML</span>
+    <!-- Soft Skills & Certifications -->
+    <section class="py-20" style="background: var(--bg-1);">
+        <div class="container mx-auto px-6 max-w-4xl grid md:grid-cols-2 gap-10">
+            <div data-aos="fade-up">
+                <p class="section-eyebrow mb-2">STRENGTHS</p>
+                <h2 class="text-2xl font-bold mb-6 display-font">Soft skills</h2>
+                <div class="flex flex-wrap gap-2">
+                    <span class="tag-pill">Problem-solving</span>
+                    <span class="tag-pill">Analytical thinking</span>
+                    <span class="tag-pill">Team collaboration</span>
+                    <span class="tag-pill">Time management</span>
+                    <span class="tag-pill">Adaptability</span>
                 </div>
             </div>
-            <div class="bg-white p-8 rounded-xl shadow-lg card-hover" data-aos="fade-up">
-                <h3 class="font-bold text-xl mb-6 text-blue-600">Frameworks & Tools</h3>
-                <div class="flex flex-wrap gap-3">
-                    <span class="skill-badge bg-green-100 text-green-800 px-4 py-2 rounded-full">TensorFlow</span>
-                    <span class="skill-badge bg-green-100 text-green-800 px-4 py-2 rounded-full">PyTorch</span>
-                    <span class="skill-badge bg-green-100 text-green-800 px-4 py-2 rounded-full">React</span>
-                    <span class="skill-badge bg-green-100 text-green-800 px-4 py-2 rounded-full">Node.js</span>
-                    <span class="skill-badge bg-green-100 text-green-800 px-4 py-2 rounded-full">Flask</span>
-                    <span class="skill-badge bg-green-100 text-green-800 px-4 py-2 rounded-full">Docker</span>
-                    <span class="skill-badge bg-green-100 text-green-800 px-4 py-2 rounded-full">OpenCV</span>
-                </div>
-            </div>
-            <div class="bg-white p-8 rounded-xl shadow-lg card-hover" data-aos="fade-up">
-                <h3 class="font-bold text-xl mb-6 text-blue-600">Databases</h3>
-                <div class="flex flex-wrap gap-3">
-                    <span class="skill-badge bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">MySQL</span>
-                    <span class="skill-badge bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">PostgreSQL</span>
-                </div>
-            </div>
-            <div class="bg-white p-8 rounded-xl shadow-lg card-hover" data-aos="fade-up">
-                <h3 class="font-bold text-xl mb-6 text-blue-600">Technologies</h3>
-                <div class="flex flex-wrap gap-3">
-                    <span class="skill-badge bg-purple-100 text-purple-800 px-4 py-2 rounded-full">Git</span>
-                    <span class="skill-badge bg-purple-100 text-purple-800 px-4 py-2 rounded-full">Linux</span>
-                    <span class="skill-badge bg-purple-100 text-purple-800 px-4 py-2 rounded-full">REST APIs</span>
-                    <span class="skill-badge bg-purple-100 text-purple-800 px-4 py-2 rounded-full">Machine Learning</span>
-                    <span class="skill-badge bg-purple-100 text-purple-800 px-4 py-2 rounded-full">AI</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<!-- Certifications & Extra Activities -->
-<section class="py-16 bg-white">
-    <div class="container mx-auto px-10">
-        <div class="grid md:grid-cols-2 gap-12">
-            <!-- Left-hand side -->
-            <div data-aos="fade-right">
-                <h2 class="text-3xl font-bold mb-8">Certifications</h2>
-                <div class="space-y-6">
-                    <div class="bg-gray-50 p-6 rounded-xl shadow-md card-hover">
-                        <h3 class="font-bold text-xl mb-2 text-blue-600">Python for Beginners</h3>
-                        <p class="text-gray-600 mb-2">Simplilearn | March 2024</p>
-                        <p class="text-sm text-gray-500">Skills: Python Programming</p>
+            <div data-aos="fade-up" data-aos-delay="100">
+                <p class="section-eyebrow mb-2">LANGUAGES</p>
+                <h2 class="text-2xl font-bold mb-6 display-font">Languages</h2>
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between text-sm mb-1"><span>English</span><span style="color: var(--text-3);">Professional</span></div>
+                        <div class="lang-bar-track"><div class="lang-bar-fill" style="width: 90%;"></div></div>
                     </div>
-                    <div class="bg-gray-50 p-6 rounded-xl shadow-md card-hover">
-                        <h3 class="font-bold text-xl mb-2 text-blue-600">Problem Solving International Hackathon</h3>
-                        <p class="text-gray-600 mb-2">University of Westminster | February 2024</p>
-                        <p class="text-sm text-gray-500">Skills: Hackathon Problem Solving</p>
-                    </div>
-                    <div class="bg-gray-50 p-6 rounded-xl shadow-md card-hover">
-                        <h3 class="font-bold text-xl mb-2 text-blue-600">Assured Diploma in Information Technology</h3>
-                        <p class="text-gray-600 mb-2">ESOFT Metro Campus | November 2023</p>
-                        <p class="text-sm text-gray-500">Skills: Adobe Photoshop, C#, CSS, HTML, Microsoft Office, Python</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right-hand side -->
-            <div data-aos="fade-left">
-                <h2 class="text-3xl font-bold mb-8"> </h2>
-                <div class="space-y-6">
-                    <div class="bg-gray-50 p-6 rounded-xl shadow-md card-hover">
-                        <h3 class="font-bold text-xl mb-2 text-blue-600">Coding Exercises: React.js</h3>
-                        <p class="text-gray-600 mb-2">LinkedIn</p>
-                        <p class="text-sm text-gray-500">Skills: React.js</p>
-                    </div>
-                    <div class="bg-gray-50 p-6 rounded-xl shadow-md card-hover">
-                        <h3 class="font-bold text-xl mb-2 text-blue-600">Advanced Java Programming</h3>
-                        <p class="text-gray-600 mb-2">LinkedIn</p>
-                        <p class="text-sm text-gray-500">Skills: Java Programming</p>
-                    </div>
-                    <div class="bg-gray-50 p-6 rounded-xl shadow-md card-hover">
-                        <h3 class="font-bold text-xl mb-2 text-blue-600">Frontend Development - HTML</h3>
-                        <p class="text-gray-600 mb-2">Great Learning</p>
-                        <p class="text-sm text-gray-500">Skills: HTML</p>
+                    <div>
+                        <div class="flex justify-between text-sm mb-1"><span>Sinhala</span><span style="color: var(--text-3);">Native</span></div>
+                        <div class="lang-bar-track"><div class="lang-bar-fill" style="width: 100%;"></div></div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section>
-<div class="container mx-auto px-20">
-<div data-aos="fade-left">
-                <h2 class="text-3xl font-bold mb-8">Extra-Curricular Activities</h2>
-                <div class="bg-gray-50 p-6 rounded-xl shadow-md">
-                    <ul class="space-y-4">
-                        <li class="flex items-center p-3 bg-white rounded-lg shadow-sm">
-                            <span class="w-3 h-3 bg-blue-600 rounded-full mr-4"></span>
-                            <span class="text-gray-600">UOW Programming Mathematics & Logic Hackathon (IIT)</span>
-                        </li>
-                        <li class="flex items-center p-3 bg-white rounded-lg shadow-sm">
-                            <span class="w-3 h-3 bg-blue-600 rounded-full mr-4"></span>
-                            <span class="text-gray-600">CodeSprint 8 (2024) (IIT)</span>
-                        </li>
-                        <li class="flex items-center p-3 bg-white rounded-lg shadow-sm">
-                            <span class="w-3 h-3 bg-blue-600 rounded-full mr-4"></span>
-                            <span class="text-gray-600">Cutting Edge 2024 (IIT)</span>
-                        </li>
-                    </ul>
+    <!-- Certifications -->
+    <section class="py-20">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <p class="section-eyebrow mb-2" data-aos="fade-up">CREDENTIALS</p>
+            <h2 class="text-3xl font-bold mb-10 display-font" data-aos="fade-up">Certifications</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="card rounded-xl p-5 flex items-start gap-3" data-aos="fade-up">
+                    <i class="fa-solid fa-certificate text-lg mt-1" style="color: var(--accent-a);"></i>
+                    <div>
+                        <p class="font-semibold text-sm">Advanced Java Programming</p>
+                        <p class="text-xs" style="color: var(--text-3);">Bethan Palmer · LinkedIn Learning</p>
+                    </div>
+                </div>
+                <div class="card rounded-xl p-5 flex items-start gap-3" data-aos="fade-up" data-aos-delay="50">
+                    <i class="fa-solid fa-certificate text-lg mt-1" style="color: var(--accent-b);"></i>
+                    <div>
+                        <p class="font-semibold text-sm">Coding Exercises: React.js</p>
+                        <p class="text-xs" style="color: var(--text-3);">Ali Spittel · LinkedIn Learning</p>
+                    </div>
+                </div>
+                <div class="card rounded-xl p-5 flex items-start gap-3" data-aos="fade-up">
+                    <i class="fa-solid fa-certificate text-lg mt-1" style="color: var(--accent-c);"></i>
+                    <div>
+                        <p class="font-semibold text-sm">Machine Learning with Python</p>
+                        <p class="text-xs" style="color: var(--text-3);">Great Learning Academy</p>
+                    </div>
+                </div>
+                <div class="card rounded-xl p-5 flex items-start gap-3" data-aos="fade-up" data-aos-delay="50">
+                    <i class="fa-solid fa-certificate text-lg mt-1" style="color: var(--accent-a);"></i>
+                    <div>
+                        <p class="font-semibold text-sm">Python Certificate</p>
+                        <p class="text-xs" style="color: var(--text-3);">Simplilearn · SkillUP</p>
+                    </div>
                 </div>
             </div>
-</div>
-</section>
+        </div>
+    </section>
 
-    <!-- Resume Section -->
-    <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-6 text-center">
-            <div class="bg-white p-8 rounded-xl shadow-lg inline-block" data-aos="zoom-in">
-                <h2 class="text-3xl font-bold mb-4">View My Resume</h2>
-                <p class="mb-6 text-gray-600">Download my full resume to learn more about my experience and skills</p>
-                <a href="https://drive.google.com/file/d/1JnSPSEEqO1hgxKsuc2_M8cRefo-YgDmS/view" 
-                   target="_blank" 
-                   class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition inline-block">
-                    Download Resume
-                </a>
+    <!-- Extra-curricular -->
+    <section class="py-20" style="background: var(--bg-1);">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <p class="section-eyebrow mb-2" data-aos="fade-up">BEYOND THE CLASSROOM</p>
+            <h2 class="text-3xl font-bold mb-10 display-font" data-aos="fade-up">Extra-curricular</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="card rounded-xl p-5 text-center" data-aos="fade-up">
+                    <i class="fa-solid fa-laptop-code text-xl mb-3" style="color: var(--accent-a);"></i>
+                    <p class="text-sm font-semibold">CodeSprint 8</p>
+                    <p class="text-xs" style="color: var(--text-3);">IIT</p>
+                </div>
+                <div class="card rounded-xl p-5 text-center" data-aos="fade-up" data-aos-delay="50">
+                    <i class="fa-solid fa-calculator text-xl mb-3" style="color: var(--accent-b);"></i>
+                    <p class="text-sm font-semibold">UOW Programming, Mathematics &amp; Logic Hackathon</p>
+                    <p class="text-xs" style="color: var(--text-3);">IIT</p>
+                </div>
+                <div class="card rounded-xl p-5 text-center" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fa-solid fa-bolt text-xl mb-3" style="color: var(--accent-c);"></i>
+                    <p class="text-sm font-semibold">Cutting Edge</p>
+                    <p class="text-xs" style="color: var(--text-3);">IIT</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
+    <footer class="text-white py-8" style="background:#111827;">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <p>© 2025 Jayani Malsha. All rights reserved.</p>
@@ -341,10 +368,25 @@
     </footer>
 
     <script>
-        AOS.init({
-            duration: 1000,
-            once: true,
-            offset: 100
+        AOS.init({ duration: 1000, once: true });
+
+        const root = document.documentElement;
+        const themeIcon = document.getElementById('theme-icon');
+        function applyTheme(theme) {
+            root.setAttribute('data-theme', theme);
+            themeIcon.className = theme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+        }
+        applyTheme('dark');
+        function toggleTheme() {
+            const current = root.getAttribute('data-theme');
+            applyTheme(current === 'dark' ? 'light' : 'dark');
+        }
+        document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+        document.getElementById('theme-toggle-mobile').addEventListener('click', toggleTheme);
+
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+            document.getElementById('mobile-menu').classList.toggle('flex');
         });
     </script>
 </body>

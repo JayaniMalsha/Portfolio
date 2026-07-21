@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +7,29 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
+        :root {
+            --bg-0: #f8fafc;
+            --bg-1: #ffffff;
+            --bg-2: #eef1f6;
+            --text-1: #0f172a;
+            --text-2: #475569;
+            --text-3: #94a3b8;
+            --border-c: #e2e8f0;
+            --accent-a: #2563eb;
+            --accent-b: #7c3aed;
+        }
+        html[data-theme="dark"] {
+            --bg-0: #090c14;
+            --bg-1: #10162a;
+            --bg-2: #171f38;
+            --text-1: #e8ecf7;
+            --text-2: #a3aec9;
+            --text-3: #616e93;
+            --border-c: #232c4a;
+            --accent-a: #5b8dff;
+            --accent-b: #a389ff;
+        }
+
         .gradient-text {
             background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
             -webkit-background-clip: text;
@@ -53,24 +76,13 @@
             background-size: 100% 100%;
         }
 
-        .nav-link {
-            position: relative;
+        nav.site-nav {
+            background: color-mix(in srgb, var(--bg-1) 80%, transparent);
+            border-bottom: 1px solid var(--border-c);
         }
+        .nav-link { color: var(--text-2); transition: color 0.2s ease; }
+        .nav-link:hover, .nav-link.active { color: var(--accent-a); }
 
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
         
         .project-image {
             height: 200px;
@@ -101,22 +113,72 @@
         .scroll-top.visible {
             opacity: 1;
         }
+
+        .theme-toggle {
+            width: 40px; height: 40px;
+            border-radius: 999px;
+            border: 1px solid var(--border-c);
+            background: var(--bg-1);
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.3s ease;
+        }
+        .theme-toggle:hover { transform: rotate(20deg) scale(1.05); }
+        .theme-toggle i { color: var(--accent-b); font-size: 16px; }
+
+        /* Dark theme overrides for existing Tailwind utility classes */
+        html[data-theme="dark"] body { background: var(--bg-0); }
+        html[data-theme="dark"] body.bg-gray-50 { background-color: var(--bg-0); }
+        html[data-theme="dark"] nav.bg-white { background-color: var(--bg-1); }
+        html[data-theme="dark"] .text-gray-800 { color: var(--text-1); }
+        html[data-theme="dark"] .text-gray-700 { color: var(--text-2); }
+        html[data-theme="dark"] .text-gray-600 { color: var(--text-2); }
+        html[data-theme="dark"] .text-gray-400 { color: var(--text-3); }
+        html[data-theme="dark"] .bg-gray-50 { background-color: var(--bg-0); }
+        html[data-theme="dark"] .bg-gray-200 { background-color: var(--bg-2); }
+        html[data-theme="dark"] .bg-gray-300 { background-color: var(--border-c); }
+        html[data-theme="dark"] .bg-gray-900 { background-color: #05070d; }
+        html[data-theme="dark"] .border-gray-800 { border-color: var(--border-c); }
+        html[data-theme="dark"] .hero-pattern {
+            background-image:
+                radial-gradient(circle at 100% 100%, var(--accent-a) 0%, transparent 25%),
+                radial-gradient(circle at 0% 0%, var(--accent-b) 0%, transparent 25%),
+                linear-gradient(rgba(9, 12, 20, 0.96), rgba(9, 12, 20, 0.96));
+        }
+        html[data-theme="dark"] .project-card {
+            background: rgba(16, 22, 42, 0.95);
+            border-color: rgba(255, 255, 255, 0.08);
+        }
     </style>
 </head>
 <body class="bg-gray-50">
     <!-- Navigation -->
-    <nav class="bg-white shadow-lg sticky top-0 z-50 backdrop-filter backdrop-blur-lg bg-opacity-90">
+    <!-- Navigation -->
+    <nav class="site-nav fixed w-full backdrop-blur-sm z-50">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
-                <a href="index.html" class="text-2xl font-bold gradient-text">
-                    Jayani Malsha
-                </a>
-                <div class="hidden md:flex space-x-8">
-                    <a href="home.html" class="nav-link text-gray-600 hover:text-blue-600">Home</a>
-                    <a href="about.html" class="nav-link text-gray-600 hover:text-blue-600">About</a>
-                    <a href="project.html" class="nav-link text-blue-600">Projects</a>
-                    <a href="contact.html" class="nav-link text-gray-600 hover:text-blue-600">Contact</a>
+                <div class="text-xl font-bold gradient-text display-font">Jayani Malsha</div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="home.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="home.html#skills" class="nav-link">Skills</a>
+                    <a href="project.html" class="nav-link active">Projects</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark and light theme">
+                        <i class="fa-solid fa-moon" id="theme-icon"></i>
+                    </button>
                 </div>
+                <button id="mobile-menu-btn" class="md:hidden theme-toggle" aria-label="Open menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden flex-col mt-4 space-y-3 pb-2">
+                <a href="home.html" class="nav-link block">Home</a>
+                <a href="about.html" class="nav-link block">About</a>
+                <a href="home.html#skills" class="nav-link block">Skills</a>
+                <a href="project.html" class="nav-link block">Projects</a>
+                <a href="contact.html" class="nav-link block">Contact</a>
+                <button id="theme-toggle-mobile" class="nav-link block text-left">Toggle theme</button>
             </div>
         </div>
     </nav>
@@ -439,6 +501,23 @@
                 behavior: 'smooth'
             });
         });
+
+        // Dark / light theme toggle
+        const rootEl = document.documentElement;
+        const themeIcon = document.getElementById('theme-icon');
+        const themeIconMobile = document.getElementById('theme-icon-mobile');
+        function applyTheme(theme) {
+            rootEl.setAttribute('data-theme', theme);
+            const iconClass = theme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+            themeIcon.className = iconClass;
+            themeIconMobile.className = iconClass;
+        }
+        function toggleTheme() {
+            const current = rootEl.getAttribute('data-theme');
+            applyTheme(current === 'dark' ? 'light' : 'dark');
+        }
+        document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+        document.getElementById('theme-toggle-mobile').addEventListener('click', toggleTheme);
     </script>
 </body>
 </html>
