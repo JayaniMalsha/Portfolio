@@ -79,18 +79,14 @@ Contact form and social links for communication.
 
 ```bash
 git clone <repository-url>
+```
 
 Open the project folder.
 Run the website by opening:
-index.html
 
+```bash
+index.html
+```
 in your browser.
 
-📄 License
 
-This project is open for personal portfolio use.
-
-
-This version is better for a GitHub Pages portfolio repo because it explains **the website itself**, not the owner.
-
-## 📂 Project Structure
