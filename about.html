@@ -131,6 +131,53 @@
         @media (prefers-reduced-motion: reduce) {
             * { scroll-behavior: auto !important; }
         }
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+        }
+
+        .theme-toggle {
+            width: 40px; height: 40px;
+            border-radius: 999px;
+            border: 1px solid var(--border-c);
+            background: var(--bg-1);
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.3s ease;
+        }
+        .theme-toggle:hover { transform: rotate(20deg) scale(1.05); }
+        .theme-toggle i { color: var(--accent-b); font-size: 16px; }
+
+        /* Dark theme overrides for existing Tailwind utility classes */
+        html[data-theme="dark"] body { background: var(--bg-0); }
+        html[data-theme="dark"] body.bg-gray-50 { background-color: var(--bg-0); }
+        html[data-theme="dark"] nav.bg-white { background-color: var(--bg-1); }
+        html[data-theme="dark"] .text-gray-800 { color: var(--text-1); }
+        html[data-theme="dark"] .text-gray-700 { color: var(--text-2); }
+        html[data-theme="dark"] .text-gray-600 { color: var(--text-2); }
+        html[data-theme="dark"] .text-gray-400 { color: var(--text-3); }
+        html[data-theme="dark"] .bg-gray-50 { background-color: var(--bg-0); }
+        html[data-theme="dark"] .bg-gray-200 { background-color: var(--bg-2); }
+        html[data-theme="dark"] .bg-gray-300 { background-color: var(--border-c); }
+        html[data-theme="dark"] .bg-gray-900 { background-color: #05070d; }
+        html[data-theme="dark"] .border-gray-800 { border-color: var(--border-c); }
+        html[data-theme="dark"] .hero-pattern {
+            background-image:
+                radial-gradient(circle at 100% 100%, var(--accent-a) 0%, transparent 25%),
+                radial-gradient(circle at 0% 0%, var(--accent-b) 0%, transparent 25%),
+                linear-gradient(rgba(9, 12, 20, 0.96), rgba(9, 12, 20, 0.96));
+        }
+        html[data-theme="dark"] .project-card {
+            background: rgba(16, 22, 42, 0.95);
+            border-color: rgba(255, 255, 255, 0.08);
+        }
     </style>
 </head>
 <body>
@@ -142,7 +189,7 @@
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="index.html" class="nav-link">Home</a>
                     <a href="about.html" class="nav-link active">About</a>
-                    <a href="home.html#skills" class="nav-link">Skills</a>
+                    <a href="skills.html" class="nav-link">Skills</a>
                     <a href="project.html" class="nav-link">Projects</a>
                     <a href="contact.html" class="nav-link">Contact</a>
                     <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark and light theme">
@@ -156,7 +203,7 @@
             <div id="mobile-menu" class="hidden md:hidden flex-col mt-4 space-y-3 pb-2">
                 <a href="index.html" class="nav-link block">Home</a>
                 <a href="about.html" class="nav-link block">About</a>
-                <a href="home.html#skills" class="nav-link block">Skills</a>
+                <a href="skills.html" class="nav-link block">Skills</a>
                 <a href="project.html" class="nav-link block">Projects</a>
                 <a href="contact.html" class="nav-link block">Contact</a>
                 <button id="theme-toggle-mobile" class="nav-link block text-left">Toggle theme</button>
@@ -353,19 +400,39 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="text-white py-8" style="background:#111827;">
+    <footer class="bg-gray-900 text-white py-12">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center">
-                <p>© 2025 Jayani Malsha. All rights reserved.</p>
-                <div class="flex space-x-6 mt-4 md:mt-0">
-                    <a href="https://www.linkedin.com/in/jayani-malsha-6a6822266" class="hover:text-blue-400 transition">LinkedIn</a>
-                    <a href="https://github.com/JayaniMalsha" class="hover:text-blue-400 transition">GitHub</a>
-                    <a href="https://wa.me/94758072622" class="hover:text-blue-400 transition">WhatsApp</a>
+                <div class="mb-8 md:mb-0">
+                    <h3 class="text-2xl font-bold gradient-text mb-4">Jayani Malsha</h3>
+                    <p class="text-gray-400">Building the future, one project at a time.</p>
                 </div>
+                <div class="flex space-x-8">
+                    <a href="https://www.linkedin.com/in/jayani-malsha-6a6822266" 
+                       class="hover:text-blue-400 transition">
+                        <i class="fab fa-linkedin text-2xl"></i>
+                    </a>
+                    <a href="https://github.com/JayaniMalsha" 
+                       class="hover:text-blue-400 transition">
+                        <i class="fab fa-github text-2xl"></i>
+                    </a>
+                    <a href="https://wa.me/94758072622" 
+                       class="hover:text-blue-400 transition">
+                        <i class="fab fa-whatsapp text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p>© 2025 Jayani Malsha. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
+    <!-- Scroll to top button -->
+    <button class="scroll-top bg-blue-600 text-white p-4 rounded-full shadow-lg">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
 
     <script>
         AOS.init({ duration: 1000, once: true });
@@ -388,6 +455,24 @@
             document.getElementById('mobile-menu').classList.toggle('hidden');
             document.getElementById('mobile-menu').classList.toggle('flex');
         });
+        // Scroll to top functionality
+        const scrollBtn = document.querySelector('.scroll-top');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 100) {
+                scrollBtn.classList.add('visible');
+            } else {
+                scrollBtn.classList.remove('visible');
+            }
+        });
+
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+
     </script>
 </body>
 </html>

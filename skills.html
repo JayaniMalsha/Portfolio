@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Skills - Jayani Malsha</title>
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+
+<style>
+
+
+:root {
+
+--bg-0:#f8fafc;
+--bg-1:#ffffff;
+--bg-2:#eef1f6;
+
+--text-1:#0f172a;
+--text-2:#475569;
+
+--border-c:#e2e8f0;
+
+--accent-a:#2563eb;
+--accent-b:#7c3aed;
+--accent-c:#06b6d4;
+
+}
+
+
+html[data-theme="dark"]{
+
+--bg-0:#090c14;
+--bg-1:#10162a;
+--bg-2:#171f38;
+
+--text-1:#e8ecf7;
+--text-2:#a3aec9;
+
+--border-c:#232c4a;
+
+--accent-a:#5b8dff;
+--accent-b:#a389ff;
+--accent-c:#22d3ee;
+
+}
+
+
+
+body{
+
+background:var(--bg-0);
+color:var(--text-1);
+font-family:'Inter',sans-serif;
+
+}
+
+
+h1,h2,h3{
+
+font-family:'Space Grotesk',sans-serif;
+
+}
+
+
+.gradient-text{
+
+background:linear-gradient(
+45deg,
+var(--accent-a),
+var(--accent-b)
+);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+}
+
+
+
+.site-nav{
+
+background:
+color-mix(
+in srgb,
+var(--bg-1) 80%,
+transparent
+);
+
+border-bottom:1px solid var(--border-c);
+
+}
+
+
+
+.nav-link{
+
+color:var(--text-2);
+
+}
+
+
+.nav-link:hover,
+.nav-link.active{
+
+color:var(--accent-a);
+
+}
+
+
+
+.theme-toggle{
+
+width:44px;
+height:44px;
+
+border-radius:50%;
+
+border:1px solid var(--border-c);
+
+background:var(--bg-1);
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+}
+
+
+.theme-toggle i{
+
+color:var(--accent-b);
+
+}
+
+
+
+.card{
+
+background:var(--bg-1);
+
+border:1px solid var(--border-c);
+
+transition:.3s;
+
+}
+
+
+.card:hover{
+
+transform:translateY(-6px);
+
+border-color:var(--accent-a);
+
+box-shadow:
+0 20px 40px -20px rgba(37,99,235,.45);
+
+}
+
+
+
+.tag-pill{
+
+font-family:'JetBrains Mono',monospace;
+
+font-size:.7rem;
+
+padding:5px 12px;
+
+border-radius:999px;
+
+background:var(--bg-2);
+
+color:var(--text-2);
+
+}
+
+
+
+.section-eyebrow{
+
+font-family:'JetBrains Mono',monospace;
+
+letter-spacing:.15em;
+
+color:var(--accent-c);
+
+font-size:.75rem;
+
+}
+
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+        }
+
+        .theme-toggle {
+            width: 40px; height: 40px;
+            border-radius: 999px;
+            border: 1px solid var(--border-c);
+            background: var(--bg-1);
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.3s ease;
+        }
+        .theme-toggle:hover { transform: rotate(20deg) scale(1.05); }
+        .theme-toggle i { color: var(--accent-b); font-size: 16px; }
+
+        /* Dark theme overrides for existing Tailwind utility classes */
+        html[data-theme="dark"] body { background: var(--bg-0); }
+        html[data-theme="dark"] body.bg-gray-50 { background-color: var(--bg-0); }
+        html[data-theme="dark"] nav.bg-white { background-color: var(--bg-1); }
+        html[data-theme="dark"] .text-gray-800 { color: var(--text-1); }
+        html[data-theme="dark"] .text-gray-700 { color: var(--text-2); }
+        html[data-theme="dark"] .text-gray-600 { color: var(--text-2); }
+        html[data-theme="dark"] .text-gray-400 { color: var(--text-3); }
+        html[data-theme="dark"] .bg-gray-50 { background-color: var(--bg-0); }
+        html[data-theme="dark"] .bg-gray-200 { background-color: var(--bg-2); }
+        html[data-theme="dark"] .bg-gray-300 { background-color: var(--border-c); }
+        html[data-theme="dark"] .bg-gray-900 { background-color: #05070d; }
+        html[data-theme="dark"] .border-gray-800 { border-color: var(--border-c); }
+        html[data-theme="dark"] .hero-pattern {
+            background-image:
+                radial-gradient(circle at 100% 100%, var(--accent-a) 0%, transparent 25%),
+                radial-gradient(circle at 0% 0%, var(--accent-b) 0%, transparent 25%),
+                linear-gradient(rgba(9, 12, 20, 0.96), rgba(9, 12, 20, 0.96));
+        }
+        html[data-theme="dark"] .project-card {
+            background: rgba(16, 22, 42, 0.95);
+            border-color: rgba(255, 255, 255, 0.08);
+        }
+
+
+</style>
+
+
+</head>
+
+
+
+<body>
+
+
+<!-- Navbar -->
+
+
+    <nav class="site-nav fixed w-full backdrop-blur-sm z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-xl font-bold gradient-text display-font">Jayani Malsha</div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="skills.html" class="nav-link active">Skills</a>
+                    <a href="project.html" class="nav-link">Projects</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark and light theme">
+                        <i class="fa-solid fa-moon" id="theme-icon"></i>
+                    </button>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden theme-toggle" aria-label="Open menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden flex-col mt-4 space-y-3 pb-2">
+                <a href="index.html" class="nav-link block">Home</a>
+                <a href="about.html" class="nav-link block">About</a>
+                <a href="skills.html" class="nav-link block">Skills</a>
+                <a href="project.html" class="nav-link block">Projects</a>
+                <a href="contact.html" class="nav-link block">Contact</a>
+                <button id="theme-toggle-mobile" class="nav-link block text-left">Toggle theme</button>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+
+<!-- Header -->
+
+
+<section class="pt-32 pb-16">
+
+
+<div class="container mx-auto px-6 text-center">
+
+
+<p class="section-eyebrow mb-3">
+
+TECH STACK
+
+</p>
+
+
+<h1 class="text-4xl md:text-5xl font-bold">
+
+Skills & Tools
+
+</h1>
+
+
+<p class="mt-5 text-lg max-w-3xl mx-auto"
+style="color:var(--text-2);">
+
+
+Technologies, frameworks, and tools I use
+to build software applications and
+AI-powered solutions.
+
+
+</p>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<!-- Skills -->
+
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24" style="background: var(--bg-1);">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-14" data-aos="fade-up">
+                <p class="section-eyebrow mb-2">TECH STACK</p>
+                <h2 class="text-3xl md:text-4xl font-bold display-font">Skills &amp; tools</h2>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <div class="card rounded-xl p-6" data-aos="fade-up">
+                    <div class="flex items-center gap-3 mb-4"><i class="fa-solid fa-code text-lg" style="color:var(--accent-a)"></i><h3 class="font-semibold">Programming languages</h3></div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag-pill">Python</span><span class="tag-pill">Java</span><span class="tag-pill">JavaScript</span><span class="tag-pill">TypeScript</span><span class="tag-pill">C#</span><span class="tag-pill">R</span>
+                    </div>
+                </div>
+                <div class="card rounded-xl p-6" data-aos="fade-up" data-aos-delay="50">
+                    <div class="flex items-center gap-3 mb-4"><i class="fa-solid fa-diagram-project text-lg" style="color:var(--accent-b)"></i><h3 class="font-semibold">Software development</h3></div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag-pill">OOP</span><span class="tag-pill">Data structures &amp; algorithms</span><span class="tag-pill">Debugging</span><span class="tag-pill">Software design principles</span>
+                    </div>
+                </div>
+                <div class="card rounded-xl p-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center gap-3 mb-4"><i class="fa-solid fa-layer-group text-lg" style="color:var(--accent-c)"></i><h3 class="font-semibold">Full stack &amp; backend</h3></div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag-pill">React.js</span><span class="tag-pill">HTML</span><span class="tag-pill">CSS</span><span class="tag-pill">Node.js</span><span class="tag-pill">NestJS</span><span class="tag-pill">FastAPI</span><span class="tag-pill">Flask</span><span class="tag-pill">REST APIs</span><span class="tag-pill">TypeORM</span><span class="tag-pill">Streamlit</span>
+                    </div>
+                </div>
+                <div class="card rounded-xl p-6" data-aos="fade-up">
+                    <div class="flex items-center gap-3 mb-4"><i class="fa-solid fa-database text-lg" style="color:var(--accent-a)"></i><h3 class="font-semibold">Databases</h3></div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag-pill">SQL</span><span class="tag-pill">PostgreSQL</span><span class="tag-pill">MySQL</span><span class="tag-pill">SQLite</span>
+                    </div>
+                </div>
+                <div class="card rounded-xl p-6" data-aos="fade-up" data-aos-delay="50">
+                    <div class="flex items-center gap-3 mb-4"><i class="fa-solid fa-brain text-lg" style="color:var(--accent-b)"></i><h3 class="font-semibold">Machine learning &amp; AI</h3></div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag-pill">ML</span><span class="tag-pill">Deep learning</span><span class="tag-pill">NLP</span><span class="tag-pill">Computer vision</span><span class="tag-pill">XAI</span><span class="tag-pill">Predictive modeling</span><span class="tag-pill">Time series forecasting</span><span class="tag-pill">Transfer learning</span><span class="tag-pill">Generative AI</span><span class="tag-pill">LLMs</span><span class="tag-pill">Prompt engineering</span>
+                    </div>
+                </div>
+                <div class="card rounded-xl p-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center gap-3 mb-4"><i class="fa-solid fa-cubes text-lg" style="color:var(--accent-c)"></i><h3 class="font-semibold">ML / DL frameworks &amp; libraries</h3></div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag-pill">TensorFlow</span><span class="tag-pill">PyTorch</span><span class="tag-pill">Scikit-learn</span><span class="tag-pill">Keras</span><span class="tag-pill">OpenCV</span><span class="tag-pill">Pandas</span><span class="tag-pill">NumPy</span><span class="tag-pill">Matplotlib</span><span class="tag-pill">Seaborn</span>
+                    </div>
+                </div>
+                <div class="card rounded-xl p-6" data-aos="fade-up">
+                    <div class="flex items-center gap-3 mb-4"><i class="fa-solid fa-share-nodes text-lg" style="color:var(--accent-a)"></i><h3 class="font-semibold">Deep learning architectures</h3></div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag-pill">CNN</span><span class="tag-pill">RNN</span><span class="tag-pill">LSTM</span><span class="tag-pill">ANN</span><span class="tag-pill">ResNet</span><span class="tag-pill">VGG</span><span class="tag-pill">Transformers</span>
+                    </div>
+                </div>
+                <div class="card rounded-xl p-6" data-aos="fade-up" data-aos-delay="50">
+                    <div class="flex items-center gap-3 mb-4"><i class="fa-solid fa-chart-line text-lg" style="color:var(--accent-b)"></i><h3 class="font-semibold">ML algorithms</h3></div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag-pill">Random forest</span><span class="tag-pill">Decision trees</span><span class="tag-pill">Linear regression</span><span class="tag-pill">K-means clustering</span><span class="tag-pill">Naive Bayes</span><span class="tag-pill">ARIMA</span>
+                    </div>
+                </div>
+                <div class="card rounded-xl p-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center gap-3 mb-4"><i class="fa-solid fa-comments text-lg" style="color:var(--accent-c)"></i><h3 class="font-semibold">NLP &amp; AI tools</h3></div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag-pill">Hugging Face (Transformers)</span><span class="tag-pill">OpenAI APIs</span><span class="tag-pill">Google Gemini API</span>
+                    </div>
+                </div>
+                <div class="card rounded-xl p-6 md:col-span-2 lg:col-span-3" data-aos="fade-up">
+                    <div class="flex items-center gap-3 mb-4"><i class="fa-solid fa-screwdriver-wrench text-lg" style="color:var(--accent-a)"></i><h3 class="font-semibold">Testing &amp; tools</h3></div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag-pill">Software testing</span><span class="tag-pill">API testing</span><span class="tag-pill">Unit testing</span><span class="tag-pill">Git</span><span class="tag-pill">GitHub</span><span class="tag-pill">Postman</span><span class="tag-pill">Docker</span><span class="tag-pill">Jupyter Notebook</span><span class="tag-pill">Google Colab</span><span class="tag-pill">Unity</span><span class="tag-pill">WordPress</span><span class="tag-pill">WooCommerce</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-8 md:mb-0">
+                    <h3 class="text-2xl font-bold gradient-text mb-4">Jayani Malsha</h3>
+                    <p class="text-gray-400">Building the future, one project at a time.</p>
+                </div>
+                <div class="flex space-x-8">
+                    <a href="https://www.linkedin.com/in/jayani-malsha-6a6822266" 
+                       class="hover:text-blue-400 transition">
+                        <i class="fab fa-linkedin text-2xl"></i>
+                    </a>
+                    <a href="https://github.com/JayaniMalsha" 
+                       class="hover:text-blue-400 transition">
+                        <i class="fab fa-github text-2xl"></i>
+                    </a>
+                    <a href="https://wa.me/94758072622" 
+                       class="hover:text-blue-400 transition">
+                        <i class="fab fa-whatsapp text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p>© 2025 Jayani Malsha. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to top button -->
+    <button class="scroll-top bg-blue-600 text-white p-4 rounded-full shadow-lg">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+
+
+
+
+<script>
+
+
+AOS.init({
+duration:1000,
+once:true
+});
+
+
+
+const root=document.documentElement;
+
+const icon=document.getElementById("theme-icon");
+
+
+document
+.getElementById("theme-toggle")
+.onclick=()=>{
+
+
+let theme =
+root.getAttribute("data-theme");
+
+
+if(theme==="dark"){
+
+root.setAttribute("data-theme","light");
+
+icon.className="fa-solid fa-moon";
+
+}
+
+else{
+
+root.setAttribute("data-theme","dark");
+
+icon.className="fa-solid fa-sun";
+
+}
+
+
+};
+
+
+
+root.setAttribute("data-theme","dark");
+
+        // Scroll to top functionality
+        const scrollBtn = document.querySelector('.scroll-top');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 100) {
+                scrollBtn.classList.add('visible');
+            } else {
+                scrollBtn.classList.remove('visible');
+            }
+        });
+
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+
+</script>
+
+
+</body>
+
+</html>

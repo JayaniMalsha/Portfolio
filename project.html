@@ -102,6 +102,138 @@
             background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
         }
 
+/* GitHub Activity Section */
+
+.github-card {
+
+    background: var(--bg-1);
+
+    border: 1px solid var(--border-c);
+
+    border-radius: 1rem;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+
+}
+
+
+.github-card:hover {
+
+    transform: translateY(-6px);
+
+    border-color: var(--accent-a);
+
+    box-shadow:
+        0 20px 40px -20px
+        color-mix(
+            in srgb,
+            var(--accent-a) 45%,
+            transparent
+        );
+
+}
+
+
+
+/* GitHub Contribution Image */
+
+.github-card img {
+
+    max-width: 100%;
+
+    height: auto;
+
+    transition: transform 0.3s ease;
+
+}
+
+
+.github-card:hover img {
+
+    transform: scale(1.02);
+
+}
+
+
+
+/* Dark mode GitHub chart */
+
+html[data-theme="dark"] 
+.github-card img {
+
+    filter:
+        invert(0.92)
+        hue-rotate(180deg)
+        brightness(1.1);
+
+}
+
+html[data-theme="dark"] .section-eyebrow {
+    color: #ffffff;
+}
+
+html[data-theme="dark"] .github-title {
+    color: #ffffff;
+}
+
+/* GitHub Button */
+
+.github-card + a {
+
+    font-family: 'JetBrains Mono', monospace;
+
+    transition:
+        transform 0.3s ease,
+        color 0.3s ease;
+
+}
+
+
+.github-card + a:hover {
+
+    transform: translateY(-3px);
+
+    color: var(--accent-b) !important;
+
+}
+
+
+
+/* Section spacing */
+
+.github-section {
+
+    padding-top: 6rem;
+
+    padding-bottom: 6rem;
+
+}
+
+
+
+/* Responsive */
+
+@media(max-width:640px){
+
+    .github-card {
+
+        padding:1rem;
+
+    }
+
+
+    .github-card img {
+
+        min-width:500px;
+
+    }
+
+}
+
+
         .scroll-top {
             position: fixed;
             bottom: 2rem;
@@ -153,7 +285,6 @@
 </head>
 <body class="bg-gray-50">
     <!-- Navigation -->
-    <!-- Navigation -->
     <nav class="site-nav fixed w-full backdrop-blur-sm z-50">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
@@ -161,7 +292,7 @@
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="index.html" class="nav-link">Home</a>
                     <a href="about.html" class="nav-link">About</a>
-                    <a href="home.html#skills" class="nav-link">Skills</a>
+                    <a href="skills.html" class="nav-link">Skills</a>
                     <a href="project.html" class="nav-link active">Projects</a>
                     <a href="contact.html" class="nav-link">Contact</a>
                     <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark and light theme">
@@ -175,7 +306,7 @@
             <div id="mobile-menu" class="hidden md:hidden flex-col mt-4 space-y-3 pb-2">
                 <a href="index.html" class="nav-link block">Home</a>
                 <a href="about.html" class="nav-link block">About</a>
-                <a href="home.html#skills" class="nav-link block">Skills</a>
+                <a href="skills.html" class="nav-link block">Skills</a>
                 <a href="project.html" class="nav-link block">Projects</a>
                 <a href="contact.html" class="nav-link block">Contact</a>
                 <button id="theme-toggle-mobile" class="nav-link block text-left">Toggle theme</button>
@@ -427,6 +558,23 @@
     </div>
 </section>
 
+
+
+    <!-- GitHub Activity Section -->
+    <section class="py-24" style="background: var(--bg-1);">
+        <div class="container mx-auto px-6 text-center">
+            <p class="section-eyebrow mb-2" data-aos="fade-up">ACTIVITY</p>
+<h2 class="github-title text-3xl md:text-4xl font-bold display-font mb-10" data-aos="fade-up">
+    GitHub contributions
+</h2>
+            <div class="github-card rounded-xl p-6 max-w-3xl mx-auto overflow-x-auto" data-aos="zoom-in">
+                <img src="https://ghchart.rshah.org/7c3aed/JayaniMalsha" alt="Jayani Malsha's GitHub contribution graph" class="mx-auto min-w-[600px]" />
+            </div>
+            <a href="https://github.com/JayaniMalsha" class="inline-block mt-6" style="color: var(--accent-a);">
+                <i class="fa-brands fa-github mr-2"></i>View full profile on GitHub
+            </a>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">
